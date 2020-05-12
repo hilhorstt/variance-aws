@@ -1,0 +1,15 @@
+{
+  "name": "variance-aws",
+  "version": "0.0.1",
+  "description": "Express/React set-up for variancesolutions.nl",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Tim Hilhorst",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
