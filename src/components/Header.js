@@ -1,19 +1,27 @@
 import React from 'react';
-import i18n, {locale, setHtmlLangAttribute} from '../i18n/i18n';
+import { withTranslation } from 'react-i18next';
+import i18n, { locale, setHtmlLangAttribute } from '../i18n/i18n';
 import styles from './style.scss';
-import {withTranslation} from "react-i18next";
 
 class Header extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            amountInView: 0,
-            menuVisible: false,
             currentLanguage: locale,
-            showTypist: true,
         };
         this.changeLanguage = this.changeLanguage.bind(this);
     }
+
+    changeLanguage(event) {
+        const lng = event.target.dataset.lang;
+        localStorage.setItem('locale', lng);
+        i18n.changeLanguage(lng);
+        setHtmlLangAttribute(lng);
+        this.setState({
+            currentLanguage: lng,
+        });
+    }
+
     renderLangButtons() {
         const { currentLanguage } = this.state;
         const languages = [
@@ -51,24 +59,10 @@ class Header extends React.PureComponent {
             );
         });
     }
-    changeLanguage(event) {
-        const lng = event.target.dataset.lang;
-        localStorage.setItem('locale', lng);
-        i18n.changeLanguage(lng);
-        setHtmlLangAttribute(lng);
-        this.setState({
-            currentLanguage: lng,
-        });
-        this.setState({
-            currentLanguage: lng,
-            showTypist: false,
-        }, () => {
-            this.setState({ showTypist: true });
-        });
-    };
+
     render() {
         return (
-            <React.Fragment>
+            <>
                 <a href="#contact" className={styles.shortcut}>{i18n.t('header.jumpToContact')}</a>
                 <nav className={styles.navBar}>
                     <ul>
@@ -81,8 +75,8 @@ class Header extends React.PureComponent {
                         {this.renderLangButtons()}
                     </ul>
                 </nav>
-            </React.Fragment>
-        )
+            </>
+        );
     }
 }
 

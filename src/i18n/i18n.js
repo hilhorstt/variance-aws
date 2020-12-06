@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+// eslint-disable-next-line import/no-unresolved,import/no-webpack-loader-syntax
 const resources = require('i18next-resource-store-loader!../i18n/index.js');
 
 const languageMap = {
@@ -9,17 +10,17 @@ const languageMap = {
     'no-NB': 'no',
     'nl-NL': 'nl',
     'nl-BE': 'nl',
-}
+};
 
 export const setHtmlLangAttribute = (lng) => {
-    document.getElementsByTagName("html")[0].setAttribute("lang", lng);
-}
+    document.getElementsByTagName('html')[0].setAttribute('lang', lng);
+};
 
 const getLocale = () => {
     if (languageMap[navigator.language]) {
         return languageMap[navigator.language];
     }
-    return languageMap['en-US']
+    return languageMap['en-US'];
 };
 
 export const locale = localStorage.getItem('locale') || getLocale();

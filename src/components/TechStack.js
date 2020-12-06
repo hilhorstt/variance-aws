@@ -1,12 +1,12 @@
 import React from 'react';
+import i18n from 'i18next';
+import { withTranslation } from 'react-i18next';
 import styles from './style.scss';
-import i18n from "i18next";
-import {withTranslation} from "react-i18next";
 
 class TechStack extends React.PureComponent {
     render() {
         return (
-            <React.Fragment>
+            <>
                 <div className={styles.techStackContainer}>
                     <div className={styles.techStackTitle}>
                         <h2 id="tech-stack">{i18n.t('techStack.title')}</h2>
@@ -37,9 +37,11 @@ class TechStack extends React.PureComponent {
                         <h3>IDE & Design</h3>
                         <ul>
                             <li className={styles.level1}>IntelliJ, WebStorm</li>
-                            <li className={styles.level2}>Adobe Suite (Photoshop,
+                            <li className={styles.level2}>
+                                Adobe Suite (Photoshop,
                                 Illustrator, InDesign,
-                                Premiere)</li>
+                                Premiere)
+                            </li>
                         </ul>
                     </div>
                     <div className={styles.list}>
@@ -51,8 +53,8 @@ class TechStack extends React.PureComponent {
                         </ul>
                     </div>
                 </div>
-            </React.Fragment>
-        )
+            </>
+        );
     }
 }
 

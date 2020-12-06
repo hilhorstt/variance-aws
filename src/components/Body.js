@@ -1,18 +1,18 @@
 import React from 'react';
+import i18n from 'i18next';
+import { withTranslation } from 'react-i18next';
 import styles from './style.scss';
 import Experience from './Experience';
-import TechStack from "./TechStack";
-import i18n from "i18next";
-import {withTranslation} from "react-i18next";
+import TechStack from './TechStack';
 
 class Body extends React.PureComponent {
     render() {
         return (
-            <React.Fragment>
+            <>
                 <section className={`${styles.section} ${styles.welcome}`}>
                     <div className={styles.body}>
                         <div className={styles.logo}>
-                            <img src={window.assetRoot + "images/variance-solutions-logo.svg"} alt="Variance Solutions logo" />
+                            <img src={`${window.assetRoot}images/variance-solutions-logo.svg`} alt="Variance Solutions logo" />
                         </div>
                     </div>
                     <div className={styles.title}>
@@ -22,7 +22,7 @@ class Body extends React.PureComponent {
                 <section className={styles.section}>
                     <div className={styles.body}>
                         <h2 id="personal-note">{i18n.t('about.title')}</h2>
-                        <div dangerouslySetInnerHTML={{ __html: i18n.t('about.body')}} />
+                        <div dangerouslySetInnerHTML={{ __html: i18n.t('about.body') }} />
                     </div>
                 </section>
                 <section className={`${styles.section} ${styles.experience}`}>
@@ -38,13 +38,24 @@ class Body extends React.PureComponent {
                     <div className={styles.body}>
                         <h2 id="contact">{i18n.t('contact.title')}</h2>
                         <p>{i18n.t('contact.body')}</p>
-                        <strong>E-mail:</strong> <a href="mailto:tim@variancesolutions.nl">tim@variancesolutions.nl</a><br />
-                        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/variancesolutions">Variance Solutions</a><br/>
-                        <strong>{i18n.t('contact.kvk')}:</strong> <a href="https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance">75766809</a>
+                        <strong>E-mail:</strong>
+                        {' '}
+                        <a href="mailto:tim@variancesolutions.nl">tim@variancesolutions.nl</a>
+                        <br />
+                        <strong>LinkedIn:</strong>
+                        {' '}
+                        <a href="https://www.linkedin.com/company/variancesolutions">Variance Solutions</a>
+                        <br />
+                        <strong>
+                            {i18n.t('contact.kvk')}
+                            :
+                        </strong>
+                        {' '}
+                        <a href="https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance">75766809</a>
                     </div>
                 </section>
-            </React.Fragment>
-        )
+            </>
+        );
     }
 }
 
