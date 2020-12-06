@@ -76,8 +76,8 @@ a {
   }
   @media only screen and (max-width: 600px) {
     .body {
-      padding: 1em;
-      width: calc(100% - 4em);
+      padding: 1.5em;
+      width: calc(100% - 5em);
     }
   }
   &.welcome .body {
@@ -127,7 +127,15 @@ a {
   }
   .languagePicker {
     @media only screen and (max-width: 600px) {
-      display: none;
+      border-left: 1px solid #ccc;
+      li button {
+        padding: 1.5em 1.5em;
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    ul li {
+      display: block;
     }
   }
 }
