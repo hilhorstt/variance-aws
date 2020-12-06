@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
-import Body from './components/Body';
+import './i18n/i18n';
+import AppContainer from "./components/App";
 
 function App() {
     return (
-        <React.Fragment>
-            <Header />
-            <Body />
-        </React.Fragment>
+        <AppContainer />
     )
 }
 

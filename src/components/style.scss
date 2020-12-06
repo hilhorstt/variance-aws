@@ -6,11 +6,31 @@ body {
 }
 
 .shortcut {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+  z-index: 1000;
+  &:focus {
+    padding: 0.5em;
+    background: black;
+    color: white;
+    width: auto;
+    height: auto;
+    clip: initial;
+  }
 }
 
 a {
   color: rgb(21, 98, 81);
+}
+
+.active {
+  font-weight: bold;
 }
 
 .section {

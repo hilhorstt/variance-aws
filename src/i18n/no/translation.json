@@ -1,0 +1,41 @@
+{
+  "header": {
+    "languages": "Språk",
+    "jumpToContact": "Hopp til kontakt"
+  },
+  "splash": {
+    "header": "Frilans lead front-end utvikler, tilgjengelighets-auditor og sertifisert scrum master"
+  },
+  "about": {
+    "title": "Om Variance",
+    "body": "<p> Mitt navn er Tim Hilhorst, grunnlegger av Variance Solutions, og velkommen til selskapssiden min.</p>\n<p> Jeg tar sikte på å kombinere design, tilgjengelighet og front-end teknologi \n    fra spesifikasjon til realisering. Som arkitektutdannet ved Technical University of Delft \n    har jeg en løsningsbasert tilnærming til å løse problemer fra skisse til detalj. </p>\n<p> Jeg liker å bygge og forbedre webapplikasjoner som gir en inkluderende opplevelse for alle brukere. Jeg gjør det ved universell utforming, tilgjengelighetsstandarder for kode, gjennomføring av WCAG audits og skriving av lesbar, gjenbrukbar kode.</p>\n<p> Jeg liker å diskutere brukeropplevelser, visuelle design, møte tilgjengelighetsstandarder og de nyeste teknologiene innen front-end-utvikling.</p>"
+  },
+  "experience": {
+    "title": "Erfaring",
+    "body": "",
+    "today": "I dag",
+    "variance": {
+      "title": "Frilans senior front-end utvikler",
+      "subTitle": "Variance Solutions, Haag",
+      "body": "<p>Currently contributing to educational software as lead front-end developer with a focus on React + Redux & NodeJS, accessibility testing & tools and guiding fellow developers.</p>\n                    <p>The solution is cloud-based running on AWS S3/EC2 and Lambda services. I contribute with domain specific knowledge, combined with knowledge and know-how regarding WCAG standards and an eye for user experience and design.</p>"
+    },
+    "inspera": {
+      "title": "Senior front-end utvikler og scrum master",
+      "subTitle": "Inspera Assessment, Oslo",
+      "body": "<p>Front-end developer, scrum master and WCAG promoter, focussing on student and author experience for Inspera's digital examination solution.</p>\n\n                            <p><strong>New tech:</strong><br />\n                                TypeScript/ES6, React, Redux (Saga), SASS + CSS modules, Webpack, Mocha/Jest, Semantic UI</p>\n\n                            <p><strong>Older stack:</strong><br />\n                                React, Backbone, Bootstrap, Underscore, Gulp</p>\n\n                            <p><strong>Ancient stack:</strong><br />\n                                Handlebars, MarionetteJS, Backbone, JQuery, XSLT, Gulp</p>\n\n                            <p><strong>Familiar with AWS cloud services:</strong><br />\n                                S3, EC2, CloudFront, Route 53, Lambda</p>\n\n                            <p><strong>Not entirely proud of, but mentionable:</strong><br />\n                                SQL, Java, TeamCity, JIRA/Confluence</p>"
+    },
+    "cognizant": {
+      "title": "Scrum Master og junior front-end utvikler",
+      "subTitle": "Cognizant, Amsterdam",
+      "body": "<p>Seconded to the largest financial services provider in the Netherlands, I was part of developing the front-end part of Tridion (CMS) components in a fully responsive & fluid grid lay-out widely applied throughout the company's website. The components are used by content writers in the organisation to promote financial products. The project required a close collaboration with visual and user experience designers, business analysts and content managers.</p>\n                            <p>As scrum master and front-end developer I have contributed to multiple features and apps for the bank's online services, such as a hybrid, angular-based chat app.</p>\n                            <p><strong>Tech Stack</strong>: AngularJS, BackboneJS, Jasmine, Jenkins, Picoma, Maven, Fitnesse, Selenium</p>"
+    }
+  },
+  "techStack": {
+    "title": "Tech stack og tooling"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "body": "Kontakt meg gjerne om frilansemuligheter eller spørsmål om tilgjengelighet på nettet!",
+    "kvk": "KvK registrering"
+  }
+}

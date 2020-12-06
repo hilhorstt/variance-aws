@@ -1,0 +1,41 @@
+{
+  "header": {
+    "languages": "Languages",
+    "jumpToContact": "Jump to contact"
+  },
+  "splash": {
+    "header": "Freelance lead front-end developer, accessibility auditor & certified scrum master"
+  },
+  "about": {
+    "title": "About Variance",
+    "body": "<p>My name is Tim Hilhorst, founder of Variance Solutions, and welcome to my company page.</p>\n                        <p>I aim to combine design, accessibility and front-end technology from specification to realisation. As an architecture graduate of the Technical University of Delft, I have a solution-based approach to solving problems from sketch to detail.</p>\n                        <p>I enjoy building and improving web applications that provide an inclusive experience for all its users. I do so by universal design, accessibility code standards, carrying out WCAG audits and writing readible, reusable code.</p>\n                        <p>I enjoy discussing user experience, visual designs, meeting accessibility standards and the latest technologies in front-end development.</p>"
+  },
+  "experience": {
+    "title": "Experience",
+    "body": "",
+    "today": "Today",
+    "variance": {
+      "title": "Freelance Senior Front-end Developer",
+      "subTitle": "Variance Solutions, The Hague",
+      "body": "<p>Currently contributing to educational software as lead front-end developer with a focus on React + Redux & NodeJS, accessibility testing & tools and guiding fellow developers.</p>\n                    <p>The solution is cloud-based running on AWS S3/EC2 and Lambda services. I contribute with domain specific knowledge, combined with knowledge and know-how regarding WCAG standards and an eye for user experience and design.</p>"
+    },
+    "inspera": {
+      "title": "Senior Front-end developer and Scrum Master",
+      "subTitle": "Inspera Assessment, Oslo",
+      "body": "<p>Front-end developer, scrum master and WCAG promoter, focussing on student and author experience for Inspera's digital examination solution.</p>\n\n                            <p><strong>New tech:</strong><br />\n                                TypeScript/ES6, React, Redux (Saga), SASS + CSS modules, Webpack, Mocha/Jest, Semantic UI</p>\n\n                            <p><strong>Older stack:</strong><br />\n                                React, Backbone, Bootstrap, Underscore, Gulp</p>\n\n                            <p><strong>Ancient stack:</strong><br />\n                                Handlebars, MarionetteJS, Backbone, JQuery, XSLT, Gulp</p>\n\n                            <p><strong>Familiar with AWS cloud services:</strong><br />\n                                S3, EC2, CloudFront, Route 53, Lambda</p>\n\n                            <p><strong>Not entirely proud of, but mentionable:</strong><br />\n                                SQL, Java, TeamCity, JIRA/Confluence</p>"
+    },
+    "cognizant": {
+      "title": "Scrum Master and Junior Front-end Developer",
+      "subTitle": "Cognizant, Amsterdam",
+      "body": "<p>Seconded to the largest financial services provider in the Netherlands, I was part of developing the front-end part of Tridion (CMS) components in a fully responsive & fluid grid lay-out widely applied throughout the company's website. The components are used by content writers in the organisation to promote financial products. The project required a close collaboration with visual and user experience designers, business analysts and content managers.</p>\n                            <p>As scrum master and front-end developer I have contributed to multiple features and apps for the bank's online services, such as a hybrid, angular-based chat app.</p>\n                            <p><strong>Tech Stack</strong>: AngularJS, BackboneJS, Jasmine, Jenkins, Picoma, Maven, Fitnesse, Selenium</p>"
+    }
+  },
+  "techStack": {
+    "title": "Tech stack and tooling"
+  },
+  "contact": {
+    "title": "Contact",
+    "body": "Feel free to contact me about freelance opportunities or web accessibility questions!",
+    "kvk": "KvK registration"
+  }
+}

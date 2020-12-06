@@ -1,0 +1,41 @@
+{
+  "header": {
+    "languages": "Talen",
+    "jumpToContact": "Direct naar contact"
+  },
+  "splash": {
+    "header": "Freelance lead front-end ontwikkelaar, toegankelijkheidsauditor en gecertificeerde scrum master"
+  },
+  "about": {
+    "title": "Over Variance",
+    "body": "<p>Mijn naam is Tim Hilhorst, oprichter van Variance Solutions, en welkom op mijn bedrijfspagina.</p>\n                        <p>Ik streef ernaar ontwerp en technologie te combineren van concept tot realisatie. Als afgestudeerd architect aan de Technische Universiteit van Delft ben ik een oplossingsgerichte ontwikkelaar met een oog voor design, ontwerp en analyse.</p>\n\n<p>In de afgelopen jaren heb ik bij kunnen dragen aan een verscheidenheid aan complexe webapplicaties voor digitale examens waar de nadruk ligt op stabiliteit, performance en webtoegankelijkheid.</p>\n\n<p>Ik geniet van het bespreken en realiseren van UX-concepten, visuele ontwerpen en de nieuwste trends op het gebied van front-end ontwikkeling en webtoegankelijkheid.</p>"
+  },
+  "experience": {
+    "title": "Ervaring",
+    "body": "",
+    "today": "Vandaag",
+    "variance": {
+      "title": "Freelance senior front-end ontwikkelaar",
+      "subTitle": "Variance Solutions, Den Haag",
+      "body": "<p>Ik draag momenteel bij aan een webapp voor digitaal toetsen als lead front-end developer met een focus op React + Redux & NodeJS, testen op toegankelijkheidseisen en het\n    begeleiden van ontwikkelaars bij de opdrachtgever.</p>\n<p>De software voor digitaal toetsen is cloud-based op services van AWS als S3/EC2 en Lambda. Ik draag bij met \n    domeinspecifieke kennis, gecombineerd met kennis en know-how van WCAG standaarden en oog voor gebruikerservaring en design.</p>"
+    },
+    "inspera": {
+      "title": "Senior front-end ontwikkelaar en scrum master",
+      "subTitle": "Inspera Assessment, Oslo",
+      "body": "<p>Front-end developer, scrum master and WCAG promoter, focussing on student and author experience for Inspera's digital examination solution.</p>\n\n                            <p><strong>New tech:</strong><br />\n                                TypeScript/ES6, React, Redux (Saga), SASS + CSS modules, Webpack, Mocha/Jest, Semantic UI</p>\n\n                            <p><strong>Older stack:</strong><br />\n                                React, Backbone, Bootstrap, Underscore, Gulp</p>\n\n                            <p><strong>Ancient stack:</strong><br />\n                                Handlebars, MarionetteJS, Backbone, JQuery, XSLT, Gulp</p>\n\n                            <p><strong>Familiar with AWS cloud services:</strong><br />\n                                S3, EC2, CloudFront, Route 53, Lambda</p>\n\n                            <p><strong>Not entirely proud of, but mentionable:</strong><br />\n                                SQL, Java, TeamCity, JIRA/Confluence</p>"
+    },
+    "cognizant": {
+      "title": "Scrum Master en junior front-end ontwikkelaar",
+      "subTitle": "Cognizant, Amsterdam",
+      "body": "<p>Seconded to the largest financial services provider in the Netherlands, I was part of developing the front-end part of Tridion (CMS) components in a fully responsive & fluid grid lay-out widely applied throughout the company's website. The components are used by content writers in the organisation to promote financial products. The project required a close collaboration with visual and user experience designers, business analysts and content managers.</p>\n                            <p>As scrum master and front-end developer I have contributed to multiple features and apps for the bank's online services, such as a hybrid, angular-based chat app.</p>\n                            <p><strong>Tech Stack</strong>: AngularJS, BackboneJS, Jasmine, Jenkins, Picoma, Maven, Fitnesse, Selenium</p>"
+    }
+  },
+  "techStack": {
+    "title": "Tech stack en tooling"
+  },
+  "contact": {
+    "title": "Contact",
+    "body": "Neem gerust contact op over freelance front-end opdrachten of vragen over digitale toegankelijkheid!",
+    "kvk": "KvK registratie"
+  }
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './style.scss';
 import Experience from './Experience';
 import TechStack from "./TechStack";
+import i18n from "i18next";
+import {withTranslation} from "react-i18next";
 
 class Body extends React.PureComponent {
     render() {
@@ -14,21 +16,18 @@ class Body extends React.PureComponent {
                         </div>
                     </div>
                     <div className={styles.title}>
-                        <h1>Freelance lead front-end developer, accessibility auditor & certified scrum master</h1>
+                        <h1>{i18n.t('splash.header')}</h1>
                     </div>
                 </section>
                 <section className={styles.section}>
                     <div className={styles.body}>
-                        <h2 id="personal-note">About Variance</h2>
-                        <p>My name is Tim Hilhorst, founder of Variance Solutions, and welcome to my company page.</p>
-                        <p>I aim to combine design, accessibility and front-end technology from specification to realisation. As an architecture graduate of the Technical University of Delft, I have a solution-based approach to solving problems from sketch to detail.</p>
-                        <p>I enjoy building and improving web applications that provide an inclusive experience for all its users. I do so by universal design, accessibility code standards, carrying out WCAG audits and writing readible, reusable code.</p>
-                        <p>I enjoy discussing user experience, visual designs, meeting accessibility standards and the latest technologies in front-end development.</p>
+                        <h2 id="personal-note">{i18n.t('about.title')}</h2>
+                        <div dangerouslySetInnerHTML={{ __html: i18n.t('about.body')}} />
                     </div>
                 </section>
                 <section className={`${styles.section} ${styles.experience}`}>
                     <div className={styles.body}>
-                        <h2 className={styles.centered} id="experience">Experience</h2>
+                        <h2 className={styles.centered} id="experience">{i18n.t('experience.title')}</h2>
                     </div>
                     <Experience />
                 </section>
@@ -37,11 +36,11 @@ class Body extends React.PureComponent {
                 </section>
                 <section className={`${styles.section} ${styles.welcome}`}>
                     <div className={styles.body}>
-                        <h2 id="contact">Contact</h2>
-                        <p>I'm currently </p>
+                        <h2 id="contact">{i18n.t('contact.title')}</h2>
+                        <p>{i18n.t('contact.body')}</p>
+                        <strong>E-mail:</strong> <a href="mailto:tim@variancesolutions.nl">tim@variancesolutions.nl</a><br />
                         <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/variancesolutions">Variance Solutions</a><br/>
-                        <strong>KvK registration:</strong> <a href="https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance">75766809</a><br/>
-                        <strong>E-mail:</strong> <a href="mailto:tim@variancesolutions.nl">tim@variancesolutions.nl</a>
+                        <strong>{i18n.t('contact.kvk')}:</strong> <a href="https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance">75766809</a>
                     </div>
                 </section>
             </React.Fragment>
@@ -49,4 +48,4 @@ class Body extends React.PureComponent {
     }
 }
 
-export default Body;
+export default withTranslation()(Body);

@@ -23,6 +23,12 @@ module.exports = env => {
         module: {
             rules: [
                 {
+                    test: /i18n[\\/]index\.js/,
+                    use: [
+                        { loader: 'i18next-resource-store-loader' },
+                    ],
+                },
+                {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     use: [
