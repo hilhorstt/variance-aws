@@ -22,6 +22,7 @@ class Body extends React.PureComponent {
                 <section className={styles.section}>
                     <div className={styles.body}>
                         <h2 id="personal-note">{i18n.t('about.title')}</h2>
+                        <img className={styles.profilePhoto} src={`${window.assetRoot}images/tim-hilhorst.jpg`} alt="Tim Hilhorst" />
                         <div dangerouslySetInnerHTML={{ __html: i18n.t('about.body') }} />
                     </div>
                 </section>
