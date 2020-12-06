@@ -14,7 +14,7 @@ class Header extends React.PureComponent {
                         <li><a href="#tech-stack">Tech stack and tooling</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                    <ul>
+                    <ul className={styles.languagePicker}>
                         <li><button disabled={true} role="button">EN</button></li>
                         <li><button disabled={true} role="button">NL</button></li>
                         <li><button disabled={true} role="button">NO</button></li>

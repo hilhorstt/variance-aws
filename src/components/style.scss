@@ -54,10 +54,19 @@ a {
       }
     }
   }
+  @media only screen and (max-width: 600px) {
+    .body {
+      padding: 1em;
+      width: calc(100% - 4em);
+    }
+  }
   &.welcome .body {
     background: white;
     border-radius: 3em;
     box-shadow: 0 5px 5px -3px  #000;
+    @media only screen and (max-width: 600px) {
+      border-radius: 1.5em;
+    }
   }
 }
 
@@ -96,6 +105,11 @@ a {
       }
     }
   }
+  .languagePicker {
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
 }
 
 .experienceBlock {
@@ -118,17 +132,27 @@ a {
     max-width: 1400px;
     overflow-x: auto;
     .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       padding: 3em;
       text-align: right;
+      min-width: 10em;
       max-width: 30%;
       h3 {
         margin: 0 0 1em 0;
         font-size: 1.8em;
+        @media only screen and (max-width: 600px) {
+          font-size: 1.6em;
+        }
       }
       h4 {
         font-size: 1.3em;
         margin: 0;
         font-weight: lighter;
+        @media only screen and (max-width: 600px) {
+          font-size: 1.2em;
+        }
       }
     }
     .right {
@@ -156,7 +180,7 @@ a {
   max-width: 1000px;
   margin: 0 auto;
   .techStackTitle {
-    font-size: 1.6em;
+    font-size: 1.4em;
     display: flex;
     padding: 2em;
     align-items: center;
@@ -178,13 +202,13 @@ a {
       }
     }
     .level1 {
-      font-size: 1.2em;
+      font-size: 1.3em;
     }
     .level2 {
-      font-size: 1em;
+      font-size: 1.1em;
     }
     .level3 {
-      font-size: 0.8em;
+      font-size: 1em;
     }
   }
 }

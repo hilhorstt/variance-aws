@@ -61,8 +61,6 @@ module.exports = env => {
             }),
             new CopyPlugin({
                 patterns: [
-                    { from: 'static/bundle.js', to: '../dist/static/bundle.js', toType: 'file' },
-                    { from: 'static/styles.css', to: '../dist/static/styles.css', toType: 'file' },
                     { from: 'src/images', to: '../dist/static/images', force: true },
                     { from: 'src/server.js', to: '../dist/server.js', toType: 'file' },
                     { from: 'package.json', to: '../dist/package.json', toType: 'file' },
