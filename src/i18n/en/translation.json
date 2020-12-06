@@ -27,7 +27,7 @@
     "cognizant": {
       "title": "Scrum Master and Junior Front-end Developer",
       "subTitle": "Cognizant, Amsterdam",
-      "body": "<p>Seconded to the largest financial services provider in the Netherlands, I was part of developing the front-end part of Tridion (CMS) components in a fully responsive & fluid grid lay-out widely applied throughout the company's website. The components are used by content writers in the organisation to promote financial products. The project required a close collaboration with visual and user experience designers, business analysts and content managers.</p>\n                            <p>As scrum master and front-end developer I have contributed to multiple features and apps for the bank's online services, such as a hybrid, angular-based chat app.</p>\n                            <p><strong>Tech Stack</strong>: AngularJS, BackboneJS, Jasmine, Jenkins, Picoma, Maven, Fitnesse, Selenium</p>"
+      "body": "<p>Seconded to the largest financial services provider in the Netherlands (confidentially agreement), I have been part of a team that developed a new fully responsive redesign of the customer facing website. A second team developed a mortgage calculation feature, AngularJS log-in screen and chat functionality within a hybrid app. As developer, I contributed to the team’s front-end development and QA testing work.</p><p>As scrum master, I organized sprint rituals, coached team members, and communicated with product owners, UI/UX designers, business analysts and content managers.</p>\n                            <p><strong>Tech Stack</strong>: AngularJS, BackboneJS, Jasmine, Jenkins, Picoma, Maven, Fitnesse, Selenium</p>"
     }
   },
   "techStack": {
