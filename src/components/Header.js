@@ -62,7 +62,7 @@ class Header extends React.PureComponent {
 
     render() {
         return (
-            <>
+            <header>
                 <a href="#contact" className={styles.shortcut}>{i18n.t('header.jumpToContact')}</a>
                 <nav className={styles.navBar}>
                     <ul>
@@ -75,7 +75,7 @@ class Header extends React.PureComponent {
                         {this.renderLangButtons()}
                     </ul>
                 </nav>
-            </>
+            </header>
         );
     }
 }

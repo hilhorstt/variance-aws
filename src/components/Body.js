@@ -35,7 +35,7 @@ class Body extends React.PureComponent {
                 <section className={`${styles.section} ${styles.techStack}`}>
                     <TechStack />
                 </section>
-                <section className={`${styles.section} ${styles.welcome}`}>
+                <footer className={`${styles.section} ${styles.welcome}`}>
                     <div className={styles.body}>
                         <h2 id="contact">{i18n.t('contact.title')}</h2>
                         <p>{i18n.t('contact.body')}</p>
@@ -54,7 +54,7 @@ class Body extends React.PureComponent {
                         {' '}
                         <a href="https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance">75766809</a>
                     </div>
-                </section>
+                </footer>
             </>
         );
     }

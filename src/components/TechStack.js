@@ -29,6 +29,9 @@ class TechStack extends React.PureComponent {
                             <li className={styles.level1}>Webpack, Gulp</li>
                             <li className={styles.level1}>Jest, Mocha</li>
                             <li className={styles.level2}>
+                                Lighthouse, Accessibility Insights
+                            </li>
+                            <li className={styles.level2}>
                                 Puppeteer, BrowserStack, Percy, XCode, Postman
                             </li>
                             <li className={styles.level2}>
