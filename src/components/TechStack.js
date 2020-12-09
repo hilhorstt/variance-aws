@@ -14,7 +14,9 @@ class TechStack extends React.PureComponent {
                     <div className={styles.list}>
                         <h3>Languages, frameworks, libraries</h3>
                         <ul>
-                            <li className={styles.level1}>React, ES6, Redux (thunk & sagas)</li>
+                            <li className={styles.level1}>
+                                React, ES6/Typescript, Redux (thunk & sagas)
+                            </li>
                             <li className={styles.level1}>CSS3, SASS, CSS modules</li>
                             <li className={styles.level2}>NodeJS</li>
                             <li className={styles.level3}>Angular</li>
