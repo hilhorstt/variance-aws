@@ -8,7 +8,7 @@
   },
   "about": {
     "title": "Over Variance",
-    "body": "<p>Mijn naam is Tim Hilhorst, oprichter van Variance Solutions, en welkom op mijn bedrijfspagina.</p>\n                        <p>Ik streef ernaar ontwerp en technologie te combineren van concept tot realisatie. Als afgestudeerd architect aan de Technische Universiteit van Delft ben ik een oplossingsgerichte ontwikkelaar met een oog voor design, ontwerp en analyse.</p>\n\n<p>In de afgelopen jaren heb ik bij kunnen dragen aan een verscheidenheid aan complexe webapplicaties voor digitale examens waar de nadruk ligt op stabiliteit, performance en webtoegankelijkheid.</p>\n\n<p>Ik geniet van het bespreken en realiseren van UX-concepten, visuele ontwerpen en de nieuwste trends op het gebied van front-end ontwikkeling en webtoegankelijkheid.</p>"
+    "body": "<p>Mijn naam is Tim Hilhorst, zzp'er onder de naam Variance Solutions woonachtig in Delft, en welkom op mijn pagina.</p>\n                        <p>Ik streef ernaar ontwerp en technologie te combineren van concept tot realisatie. Als afgestudeerd architect aan de Technische Universiteit van Delft ben ik een oplossingsgerichte ontwikkelaar met een oog voor design, ontwerp en analyse.</p>\n\n<p>In de afgelopen jaren heb ik bij kunnen dragen aan een verscheidenheid aan complexe webapplicaties voor digitale examens waar de nadruk ligt op stabiliteit, performance en webtoegankelijkheid.</p>\n\n<p>Ik geniet van het bespreken en realiseren van UX-concepten, visuele ontwerpen en de nieuwste trends op het gebied van front-end ontwikkeling en webtoegankelijkheid.</p>"
   },
   "experience": {
     "title": "Ervaring",
@@ -16,8 +16,8 @@
     "today": "Vandaag",
     "variance": {
       "title": "Freelance senior front-end ontwikkelaar",
-      "subTitle": "Variance Solutions, Den Haag",
-      "body": "<p>Ik draag momenteel bij aan een webapp voor digitaal toetsen als lead front-end developer met een focus op React + Redux & NodeJS, testen op toegankelijkheidseisen en het\n    begeleiden van ontwikkelaars bij de opdrachtgever.</p>\n<p>De software voor digitaal toetsen is cloud-based op services van AWS als S3/EC2 en Lambda. Ik draag bij met \n    domeinspecifieke kennis, gecombineerd met kennis en know-how van WCAG standaarden en oog voor gebruikerservaring en design.</p>"
+      "subTitle": "Variance Solutions, Delft",
+      "body": "<p>Ik draag momenteel bij aan een onderwijs-gerelateerde webapps als lead front-end developer met een focus op React + Redux & NodeJS, testen op toegankelijkheidseisen en het\n    begeleiden van ontwikkelaars bij de opdrachtgever.</p>\n<p>De software voor digitaal toetsen is cloud-based op services van AWS als S3/EC2 en Lambda. Ik draag bij met \n    domeinspecifieke kennis, gecombineerd met kennis en know-how van WCAG standaarden en oog voor gebruikerservaring en design.</p>"
     },
     "inspera": {
       "title": "Senior front-end ontwikkelaar en scrum master",

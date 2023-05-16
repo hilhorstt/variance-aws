@@ -8,7 +8,7 @@
   },
   "about": {
     "title": "About Variance",
-    "body": "<p>My name is Tim Hilhorst, founder of Variance Solutions, and welcome to my company page.</p>\n                        <p>I aim to combine design, accessibility and front-end technology from specification to realisation. As an architecture graduate of the Technical University of Delft, I have a solution-based approach to solving problems from sketch to detail.</p>\n                        <p>I enjoy building and improving web applications that provide an inclusive experience for all its users. I do so by universal design, accessibility code standards, carrying out WCAG audits and writing readible, reusable code.</p>\n                        <p>I enjoy discussing user experience, visual designs, meeting accessibility standards and the latest technologies in front-end development.</p>"
+    "body": "<p>My name is Tim Hilhorst, freelancer under the name Variance Solutions based in Delft, and welcome to my page.</p>\n                        <p>I aim to combine design, accessibility and front-end technology from specification to realisation. As an architecture graduate of the Technical University of Delft, I have a solution-based approach to solving problems from sketch to detail.</p>\n                        <p>I enjoy building and improving web applications that provide an inclusive experience for all its users. I do so by universal design, accessibility code standards, carrying out WCAG audits and writing readible, reusable code.</p>\n                        <p>I enjoy discussing user experience, visual designs, meeting accessibility standards and the latest technologies in front-end development.</p>"
   },
   "experience": {
     "title": "Experience",
@@ -16,7 +16,7 @@
     "today": "Today",
     "variance": {
       "title": "Freelance Senior Front-end Developer",
-      "subTitle": "Variance Solutions, The Hague",
+      "subTitle": "Variance Solutions, Delft",
       "body": "<p>Currently contributing to educational software as lead front-end developer with a focus on React + Redux & NodeJS, accessibility testing & tools and guiding fellow developers.</p>\n                    <p>The solution is cloud-based running on AWS S3/EC2 and Lambda services. I contribute with domain specific knowledge, combined with knowledge and know-how regarding WCAG standards and an eye for user experience and design.</p>"
     },
     "inspera": {

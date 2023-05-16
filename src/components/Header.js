@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import i18n, { locale, setHtmlLangAttribute } from '../i18n/i18n';
@@ -61,17 +62,18 @@ class Header extends React.PureComponent {
     }
 
     render() {
+        const { t } = this.props;
         return (
             <header>
-                <a href="#contact" className={styles.shortcut}>{i18n.t('header.jumpToContact')}</a>
+                <a href="#contact" className={styles.shortcut}>{t('header.jumpToContact')}</a>
                 <nav className={styles.navBar}>
                     <ul>
-                        <li><a href="#personal-note">{i18n.t('about.title')}</a></li>
-                        <li><a href="#experience">{i18n.t('experience.title')}</a></li>
-                        <li><a href="#tech-stack">{i18n.t('techStack.title')}</a></li>
-                        <li><a href="#contact">{i18n.t('contact.title')}</a></li>
+                        <li><a href="#personal-note">{t('about.title')}</a></li>
+                        <li><a href="#experience">{t('experience.title')}</a></li>
+                        <li><a href="#tech-stack">{t('techStack.title')}</a></li>
+                        <li><a href="#contact">{t('contact.title')}</a></li>
                     </ul>
-                    <ul className={styles.languagePicker} aria-label={i18n.t('header.languages')}>
+                    <ul className={styles.languagePicker} aria-label={t('header.languages')}>
                         {this.renderLangButtons()}
                     </ul>
                 </nav>
@@ -79,5 +81,9 @@ class Header extends React.PureComponent {
         );
     }
 }
+
+Header.propTypes = {
+    t: PropTypes.func.isRequired,
+};
 
 export default withTranslation()(Header);
