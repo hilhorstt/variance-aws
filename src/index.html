@@ -14,6 +14,15 @@
     <script type="application/javascript">
         window.assetRoot = location.port === '3010' ? 'static/' : '';
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNEV8C8QWB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FNEV8C8QWB');
+    </script>
 </head>
 <body>
     <div id="app"></div>
