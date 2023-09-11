@@ -1,9 +1,8 @@
-import { defineConfig, loadEnv } from 'vite';
+import { builtinModules } from 'module';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ command, mode, ssrBuild }) => {
-    const env = loadEnv(mode, process.cwd(), '');
-
     console.log(`Starting vite config in mode: ${mode}, SSR build: ${ssrBuild ? 'yes' : 'no'}, Command: ${command}`);
 
     return {
@@ -15,17 +14,16 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             strictPort: true,
             host: 'localhost',
             open: '/',
-            proxy: {
-                '/api': {
-                    target: env.PAG_PROXY_URL,
-                    pathRewrite: { '^/api': '' },
-                    changeOrigin: true,
-                },
-            },
         },
         ...(mode === 'production' ? {
             build: {
                 sourcemap: true,
+                rollupOptions: {
+                    external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
+                },
+            },
+            ssr: {
+                noExternal: true,
             },
         } : {}),
     };

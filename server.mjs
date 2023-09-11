@@ -11,10 +11,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const resolve = (p) => path.resolve(__dirname, p);
 
-async function createServer(isProduction = process.env.NODE_ENV === 'production') {
+async function createServer() {
     const app = express();
     app.use(cors());
     app.use(cookieParser());
+    const isProduction = process.env.NODE_ENV === 'production';
 
     const indexProd = isProduction ? fs.readFileSync(resolve('build/client/index.html'), 'utf-8') : '';
 
@@ -71,7 +72,7 @@ async function createServer(isProduction = process.env.NODE_ENV === 'production'
     }
 
     app.get('/', doRender);
-    const port = isProduction ? PORT : vite.config.server.port;
+        const port = isProduction ? 3000 : vite.config.server.port;
     app.listen(port, '0.0.0.0', () => {
         console.log(`Started ${isProduction ? 'production' : 'development'} SSR on: http://localhost:${port}`);
     });
