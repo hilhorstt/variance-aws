@@ -20,7 +20,7 @@
       "body": "<p>Currently contributing to educational software as lead front-end developer with a focus on React + Redux & NodeJS, accessibility testing & tools and guiding fellow developers.</p>\n                    <p>The solution is cloud-based running on AWS S3/EC2 and Lambda services. I contribute with domain specific knowledge, combined with knowledge and know-how regarding WCAG standards and an eye for user experience and design.</p>"
     },
     "inspera": {
-      "title": "Senior front-end utvikler og scrum master",
+      "title": "Freelance senior front-end utvikler og scrum master",
       "subTitle": "Inspera Assessment, Oslo",
       "body": "<p>Front-end developer, scrum master and WCAG promoter, focussing on student and author experience for Inspera's digital examination solution.</p>\n\n                            <p><strong>New tech:</strong><br />\n                                TypeScript/ES6, React, Redux (Saga), SASS + CSS modules, Webpack, Mocha/Jest, Semantic UI</p>\n\n                            <p><strong>Older stack:</strong><br />\n                                React, Backbone, Bootstrap, Underscore, Gulp</p>\n\n                            <p><strong>Ancient stack:</strong><br />\n                                Handlebars, MarionetteJS, Backbone, JQuery, XSLT, Gulp</p>\n\n                            <p><strong>Familiar with AWS cloud services:</strong><br />\n                                S3, EC2, CloudFront, Route 53, Lambda</p>\n\n                            <p><strong>Not entirely proud of, but mentionable:</strong><br />\n                                SQL, Java, TeamCity, JIRA/Confluence</p>"
     },
@@ -37,5 +37,10 @@
     "title": "Kontakt",
     "body": "Kontakt meg gjerne om frilansemuligheter eller spørsmål om tilgjengelighet på nettet!",
     "kvk": "KvK registrering"
-  }
+  },
+    "seo": {
+      "description": "Tim Hilhorst, freelance lead front-end utvikler, universell utforming og sertifisert scrum master",
+      "keywords": "tilgjengelighet, digital universell utforming, tilgjengelighet, wcag, freelance, front-end, utvikler, lead developer, scrum master",
+      "title": "Tim Hilhorst | Variance - Lead Front-end Utvikler & Web Accessibility Auditor"
+    }
 }

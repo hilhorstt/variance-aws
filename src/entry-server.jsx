@@ -1,6 +1,7 @@
+import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import App from './components/App';
 import createEmotionCache from './createEmotionCache';
 
@@ -16,12 +17,14 @@ export async function render(req) {
     async function renderApp() {
         const helmetContext = {};
 
-        const html = ReactDOMServer.renderToString(
-            <App locale={req.cookies?.locale} />,
+        const html = renderToString(
+            <CacheProvider value={emotionCache}>
+                <App locale={req.cookies?.locale} helmetContext={helmetContext} />
+            </CacheProvider>,
         );
         // Grab the CSS from emotion
-        const emotionChunks = extractCriticalToChunks(html);
-        const css = constructStyleTagsFromChunks(emotionChunks);
+        const chunks = extractCriticalToChunks(html);
+        const css = constructStyleTagsFromChunks(chunks);
         return [html, css, helmetContext?.helmet];
     }
 

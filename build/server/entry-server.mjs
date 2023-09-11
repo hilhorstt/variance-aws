@@ -1,9 +1,10 @@
+import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import createEmotionServer from "@emotion/server/create-instance";
-import React from "react";
+import React, { useMemo } from "react";
 import ReactDOMServer from "react-dom/server";
+import i18next from "i18next";
+import { I18nextProvider, withTranslation, useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { initReactI18next, withTranslation, useTranslation } from "react-i18next";
-import i18n from "i18next";
 import createCache from "@emotion/cache";
 const header$3 = {
   languages: "Talen",
@@ -146,49 +147,47 @@ const translationNo = {
   techStack: techStack$1,
   contact
 };
-const languageMap = {
-  "en-US": "en",
-  "no-NO": "no",
-  "no-NB": "no",
-  "nl-NL": "nl",
-  "nl-BE": "nl"
-};
 const setHtmlLangAttribute = (lng) => {
-  document.getElementsByTagName("html")[0].setAttribute("lang", lng);
+  if (typeof document !== "undefined")
+    document.getElementsByTagName("html")[0].setAttribute("lang", lng);
 };
-const getLocale = () => {
-  if (languageMap[navigator.language]) {
-    return languageMap[navigator.language];
-  }
-  return languageMap["en-US"];
-};
-
-let localeFromLocalStorage;
-if (typeof localStorage !== 'undefined') {
-  localeFromLocalStorage = localStorage.getItem("locale");
-}
-
-const locale = localeFromLocalStorage || getLocale();
-i18n.use(initReactI18next).init({
-  resources: {
-    en: {
-      translation: translationEn
+const defaultLocale = "nl";
+function I18nProvider({ locale: locale2, children }) {
+  console.log(locale2);
+  const i18nInstance = useMemo(() => i18next.createInstance({
+    fallbackLng: defaultLocale,
+    lng: locale2 || defaultLocale,
+    ignoreJSONStructure: true,
+    resources: {
+      en: {
+        translation: translationEn
+      },
+      nl: {
+        translation: translationNl
+      },
+      no: {
+        translation: translationNo
+      }
     },
-    nl: {
-      translation: translationNl
-    },
-    no: {
-      translation: translationNo
+    debug: process.env.NODE_ENV !== "production" && false,
+    react: {
+      useSuspense: true
     }
-  },
-  lng: locale,
-  interpolation: {
-    escapeValue: false
-    // react already safes from xss
+  }, (err) => {
+    if (err)
+      console.error("Failed initializing i18n instance", err);
+  }), []);
+  return /* @__PURE__ */ jsx(I18nextProvider, { i18n: i18nInstance, children });
+}
+function setCookie(name, value, days) {
+  let expires = "";
+  if (days) {
+    const date2 = /* @__PURE__ */ new Date();
+    date2.setTime(date2.getTime() + days * 24 * 60 * 60 * 1e3);
+    expires = `; expires=${date2.toUTCString()}`;
   }
-}, () => {
-  setHtmlLangAttribute(locale);
-});
+  document.cookie = `${name}=${value || ""}${expires}; path=/`;
+}
 const shortcut = "_shortcut_5wavz_13";
 const active = "_active_5wavz_37";
 const section = "_section_5wavz_41";
@@ -248,22 +247,16 @@ const styles = {
 class Header extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      currentLanguage: locale
-    };
     this.changeLanguage = this.changeLanguage.bind(this);
   }
   changeLanguage(event) {
+    const { i18n } = this.props;
     const lng = event.target.dataset.lang;
-    if (typeof localStorage !== 'undefined') localStorage.setItem("locale", lng);
+    setCookie("locale", lng);
     i18n.changeLanguage(lng);
     setHtmlLangAttribute(lng);
-    this.setState({
-      currentLanguage: lng
-    });
   }
   renderLangButtons() {
-    const { currentLanguage } = this.state;
     const languages = [
       {
         description: "Nederlands",
@@ -282,8 +275,9 @@ class Header extends React.PureComponent {
       }
     ];
     return languages.map((lang) => {
-      const isCurrent = currentLanguage === lang.langCode;
-      return /* @__PURE__ */ React.createElement("li", { key: `${lang.langCode}_button` }, /* @__PURE__ */ React.createElement(
+      const { i18n } = this.props;
+      const isCurrent = i18n.language === lang.langCode;
+      return /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
         "button",
         {
           type: "button",
@@ -291,25 +285,50 @@ class Header extends React.PureComponent {
           "aria-label": lang.description,
           className: isCurrent ? styles.active : "",
           "aria-current": isCurrent,
-          "data-lang": lang.langCode
-        },
-        lang.title
-      ));
+          "data-lang": lang.langCode,
+          children: lang.title
+        }
+      ) }, `${lang.langCode}_button`);
     });
   }
   render() {
     const { t } = this.props;
-    return /* @__PURE__ */ React.createElement("header", null, /* @__PURE__ */ React.createElement("a", { href: "#contact", className: styles.shortcut }, t("header.jumpToContact")), /* @__PURE__ */ React.createElement("nav", { className: styles.navBar }, /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: "#personal-note" }, t("about.title"))), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: "#experience" }, t("experience.title"))), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: "#tech-stack" }, t("techStack.title"))), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("a", { href: "#contact" }, t("contact.title")))), /* @__PURE__ */ React.createElement("ul", { className: styles.languagePicker, "aria-label": t("header.languages") }, this.renderLangButtons())));
+    return /* @__PURE__ */ jsxs("header", { children: [
+      /* @__PURE__ */ jsx("a", { href: "#contact", className: styles.shortcut, children: t("header.jumpToContact") }),
+      /* @__PURE__ */ jsxs("nav", { className: styles.navBar, children: [
+        /* @__PURE__ */ jsxs("ul", { children: [
+          /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "#personal-note", children: t("about.title") }) }),
+          /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "#experience", children: t("experience.title") }) }),
+          /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "#tech-stack", children: t("techStack.title") }) }),
+          /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "#contact", children: t("contact.title") }) })
+        ] }),
+        /* @__PURE__ */ jsx("ul", { className: styles.languagePicker, "aria-label": t("header.languages"), children: this.renderLangButtons() })
+      ] })
+    ] });
   }
 }
 Header.propTypes = {
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  i18n: PropTypes.object.isRequired
 };
 const Header$1 = withTranslation()(Header);
 function Project({ projectKey, startDate }) {
   const { t } = useTranslation();
   const captionKey = `experience.${projectKey}.`;
-  return /* @__PURE__ */ React.createElement("article", { className: styles.experienceBlock }, /* @__PURE__ */ React.createElement("div", { className: styles.experienceBody }, /* @__PURE__ */ React.createElement("div", { className: styles.left }, /* @__PURE__ */ React.createElement("h3", null, t(`${captionKey}title`)), /* @__PURE__ */ React.createElement("h4", null, t(`${captionKey}subTitle`))), /* @__PURE__ */ React.createElement("div", { className: styles.right, dangerouslySetInnerHTML: { __html: t(`${captionKey}body`) } })), /* @__PURE__ */ React.createElement("div", { className: styles.header }, /* @__PURE__ */ React.createElement("div", { className: styles.lineLeft }), /* @__PURE__ */ React.createElement("div", { className: styles.date }, startDate), /* @__PURE__ */ React.createElement("div", { className: styles.lineRight })));
+  return /* @__PURE__ */ jsxs("article", { className: styles.experienceBlock, children: [
+    /* @__PURE__ */ jsxs("div", { className: styles.experienceBody, children: [
+      /* @__PURE__ */ jsxs("div", { className: styles.left, children: [
+        /* @__PURE__ */ jsx("h3", { children: t(`${captionKey}title`) }),
+        /* @__PURE__ */ jsx("h4", { children: t(`${captionKey}subTitle`) })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: styles.right, dangerouslySetInnerHTML: { __html: t(`${captionKey}body`) } })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: styles.header, children: [
+      /* @__PURE__ */ jsx("div", { className: styles.lineLeft }),
+      /* @__PURE__ */ jsx("div", { className: styles.date, children: startDate }),
+      /* @__PURE__ */ jsx("div", { className: styles.lineRight })
+    ] })
+  ] });
 }
 Project.propTypes = {
   projectKey: PropTypes.string.isRequired,
@@ -317,37 +336,124 @@ Project.propTypes = {
 };
 function Experience() {
   const { t } = useTranslation();
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: styles.experienceBlock }, /* @__PURE__ */ React.createElement("div", { className: styles.header }, /* @__PURE__ */ React.createElement("div", { className: styles.lineLeft }), /* @__PURE__ */ React.createElement("div", { className: styles.date }, t("experience.today")), /* @__PURE__ */ React.createElement("div", { className: styles.lineRight }))), /* @__PURE__ */ React.createElement(Project, { projectKey: "variance", startDate: "09 / 2019" }), /* @__PURE__ */ React.createElement(Project, { projectKey: "inspera", startDate: "11 / 2015" }), /* @__PURE__ */ React.createElement(Project, { projectKey: "cognizant", startDate: "08 / 2013" }));
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx("div", { className: styles.experienceBlock, children: /* @__PURE__ */ jsxs("div", { className: styles.header, children: [
+      /* @__PURE__ */ jsx("div", { className: styles.lineLeft }),
+      /* @__PURE__ */ jsx("div", { className: styles.date, children: t("experience.today") }),
+      /* @__PURE__ */ jsx("div", { className: styles.lineRight })
+    ] }) }),
+    /* @__PURE__ */ jsx(Project, { projectKey: "variance", startDate: "09 / 2019" }),
+    /* @__PURE__ */ jsx(Project, { projectKey: "inspera", startDate: "11 / 2015" }),
+    /* @__PURE__ */ jsx(Project, { projectKey: "cognizant", startDate: "08 / 2013" })
+  ] });
 }
 const Experience$1 = withTranslation()(Experience);
 function TechStack() {
   const { t } = useTranslation();
-  return /* @__PURE__ */ React.createElement("div", { className: styles.techStackContainer }, /* @__PURE__ */ React.createElement("div", { className: styles.techStackTitle }, /* @__PURE__ */ React.createElement("h2", { id: "tech-stack" }, t("techStack.title"))), /* @__PURE__ */ React.createElement("div", { className: styles.list }, /* @__PURE__ */ React.createElement("h3", null, "Languages, frameworks, libraries"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", { className: styles.level1 }, "React, ES6/Typescript, Redux (thunk & sagas)"), /* @__PURE__ */ React.createElement("li", { className: styles.level1 }, "CSS3, SASS, CSS modules"), /* @__PURE__ */ React.createElement("li", { className: styles.level1 }, "Material UI, Semantic UI"), /* @__PURE__ */ React.createElement("li", { className: styles.level2 }, "NodeJS"), /* @__PURE__ */ React.createElement("li", { className: styles.level3 }, "Backbone, Bootstrap, underscoreJS"), /* @__PURE__ */ React.createElement("li", { className: styles.level3 }, "Handlebars, Marionette, JQuery"), /* @__PURE__ */ React.createElement("li", { className: styles.level3 }, "Java, SQL, XSLT"))), /* @__PURE__ */ React.createElement("div", { className: styles.list }, /* @__PURE__ */ React.createElement("h3", null, "Compilers, services & testing"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", { className: styles.level1 }, "Webpack, Gulp"), /* @__PURE__ */ React.createElement("li", { className: styles.level1 }, "Jest, Mocha"), /* @__PURE__ */ React.createElement("li", { className: styles.level2 }, "Lighthouse, Accessibility Insights"), /* @__PURE__ */ React.createElement("li", { className: styles.level2 }, "Puppeteer, BrowserStack, Percy, XCode, Postman"), /* @__PURE__ */ React.createElement("li", { className: styles.level2 }, "EC2/S3, Lambda, Beanstalk, Route53 (AWS)"), /* @__PURE__ */ React.createElement("li", { className: styles.level3 }, "TeamCity, Github Actions"))), /* @__PURE__ */ React.createElement("div", { className: styles.list }, /* @__PURE__ */ React.createElement("h3", null, "IDE & Design"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", { className: styles.level1 }, "IntelliJ, WebStorm, Sublime, SQLDeveloper"), /* @__PURE__ */ React.createElement("li", { className: styles.level2 }, "Photoshop, Illustrator, InDesign, Premiere"))), /* @__PURE__ */ React.createElement("div", { className: styles.list }, /* @__PURE__ */ React.createElement("h3", null, "Agile, planning & process"), /* @__PURE__ */ React.createElement("ul", null, /* @__PURE__ */ React.createElement("li", { className: styles.level1 }, "Certified Scrum Master"), /* @__PURE__ */ React.createElement("li", { className: styles.level1 }, "JIRA, Confluence"), /* @__PURE__ */ React.createElement("li", { className: styles.level2 }, "Product team"), /* @__PURE__ */ React.createElement("li", { className: styles.level2 }, "Backlog prioritisation"))));
+  return /* @__PURE__ */ jsxs("div", { className: styles.techStackContainer, children: [
+    /* @__PURE__ */ jsx("div", { className: styles.techStackTitle, children: /* @__PURE__ */ jsx("h2", { id: "tech-stack", children: t("techStack.title") }) }),
+    /* @__PURE__ */ jsxs("div", { className: styles.list, children: [
+      /* @__PURE__ */ jsx("h3", { children: "Languages, frameworks, libraries" }),
+      /* @__PURE__ */ jsxs("ul", { children: [
+        /* @__PURE__ */ jsx("li", { className: styles.level1, children: "React, ES6/Typescript, Redux (thunk & sagas)" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level1, children: "CSS3, SASS, CSS modules" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level1, children: "Material UI, Semantic UI" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level2, children: "NodeJS" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level3, children: "Backbone, Bootstrap, underscoreJS" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level3, children: "Handlebars, Marionette, JQuery" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level3, children: "Java, SQL, XSLT" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: styles.list, children: [
+      /* @__PURE__ */ jsx("h3", { children: "Compilers, services & testing" }),
+      /* @__PURE__ */ jsxs("ul", { children: [
+        /* @__PURE__ */ jsx("li", { className: styles.level1, children: "Webpack, Gulp" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level1, children: "Jest, Mocha" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level2, children: "Lighthouse, Accessibility Insights" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level2, children: "Puppeteer, BrowserStack, Percy, XCode, Postman" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level2, children: "EC2/S3, Lambda, Beanstalk, Route53 (AWS)" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level3, children: "TeamCity, Github Actions" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: styles.list, children: [
+      /* @__PURE__ */ jsx("h3", { children: "IDE & Design" }),
+      /* @__PURE__ */ jsxs("ul", { children: [
+        /* @__PURE__ */ jsx("li", { className: styles.level1, children: "IntelliJ, WebStorm, Sublime, SQLDeveloper" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level2, children: "Photoshop, Illustrator, InDesign, Premiere" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: styles.list, children: [
+      /* @__PURE__ */ jsx("h3", { children: "Agile, planning & process" }),
+      /* @__PURE__ */ jsxs("ul", { children: [
+        /* @__PURE__ */ jsx("li", { className: styles.level1, children: "Certified Scrum Master" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level1, children: "JIRA, Confluence" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level2, children: "Product team" }),
+        /* @__PURE__ */ jsx("li", { className: styles.level2, children: "Backlog prioritisation" })
+      ] })
+    ] })
+  ] });
 }
 const logo = "/assets/variance-solutions-logo-e978600b.svg";
 const me = "/assets/tim-hilhorst-2785c151.jpg";
 function Body() {
   const { t } = useTranslation();
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("section", { className: `${styles.section} ${styles.welcome}` }, /* @__PURE__ */ React.createElement("div", { className: styles.body }, /* @__PURE__ */ React.createElement("div", { className: styles.logo }, /* @__PURE__ */ React.createElement("img", { src: logo, alt: "Variance Solutions logo" }))), /* @__PURE__ */ React.createElement("div", { className: styles.title }, /* @__PURE__ */ React.createElement("h1", null, t("splash.header")))), /* @__PURE__ */ React.createElement("section", { className: styles.section }, /* @__PURE__ */ React.createElement("div", { className: styles.body }, /* @__PURE__ */ React.createElement("h2", { id: "personal-note" }, t("about.title")), /* @__PURE__ */ React.createElement("img", { className: styles.profilePhoto, src: me, alt: "Tim Hilhorst" }), /* @__PURE__ */ React.createElement("div", { dangerouslySetInnerHTML: { __html: t("about.body") } }))), /* @__PURE__ */ React.createElement("section", { className: `${styles.section} ${styles.experience}` }, /* @__PURE__ */ React.createElement("div", { className: styles.body }, /* @__PURE__ */ React.createElement("h2", { className: styles.centered, id: "experience" }, t("experience.title"))), /* @__PURE__ */ React.createElement(Experience$1, null)), /* @__PURE__ */ React.createElement("section", { className: `${styles.section} ${styles.techStack}` }, /* @__PURE__ */ React.createElement(TechStack, null)), /* @__PURE__ */ React.createElement("footer", { className: `${styles.section} ${styles.welcome}` }, /* @__PURE__ */ React.createElement("div", { className: styles.body }, /* @__PURE__ */ React.createElement("h2", { id: "contact" }, t("contact.title")), /* @__PURE__ */ React.createElement("p", null, t("contact.body")), /* @__PURE__ */ React.createElement("strong", null, "E-mail:"), " ", /* @__PURE__ */ React.createElement("a", { href: "mailto:tim@variancesolutions.nl" }, "tim@variancesolutions.nl"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("strong", null, "LinkedIn:"), " ", /* @__PURE__ */ React.createElement("a", { href: "https://www.linkedin.com/company/variancesolutions" }, "Variance Solutions"), /* @__PURE__ */ React.createElement("br", null), /* @__PURE__ */ React.createElement("strong", null, t("contact.kvk"), ":"), " ", /* @__PURE__ */ React.createElement("a", { href: "https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance" }, "75766809"))));
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsxs("section", { className: `${styles.section} ${styles.welcome}`, children: [
+      /* @__PURE__ */ jsx("div", { className: styles.body, children: /* @__PURE__ */ jsx("div", { className: styles.logo, children: /* @__PURE__ */ jsx("img", { src: logo, alt: "Variance Solutions logo" }) }) }),
+      /* @__PURE__ */ jsx("div", { className: styles.title, children: /* @__PURE__ */ jsx("h1", { children: t("splash.header") }) })
+    ] }),
+    /* @__PURE__ */ jsx("section", { className: styles.section, children: /* @__PURE__ */ jsxs("div", { className: styles.body, children: [
+      /* @__PURE__ */ jsx("h2", { id: "personal-note", children: t("about.title") }),
+      /* @__PURE__ */ jsx("img", { className: styles.profilePhoto, src: me, alt: "Tim Hilhorst" }),
+      /* @__PURE__ */ jsx("div", { dangerouslySetInnerHTML: { __html: t("about.body") } })
+    ] }) }),
+    /* @__PURE__ */ jsxs("section", { className: `${styles.section} ${styles.experience}`, children: [
+      /* @__PURE__ */ jsx("div", { className: styles.body, children: /* @__PURE__ */ jsx("h2", { className: styles.centered, id: "experience", children: t("experience.title") }) }),
+      /* @__PURE__ */ jsx(Experience$1, {})
+    ] }),
+    /* @__PURE__ */ jsx("section", { className: `${styles.section} ${styles.techStack}`, children: /* @__PURE__ */ jsx(TechStack, {}) }),
+    /* @__PURE__ */ jsx("footer", { className: `${styles.section} ${styles.welcome}`, children: /* @__PURE__ */ jsxs("div", { className: styles.body, children: [
+      /* @__PURE__ */ jsx("h2", { id: "contact", children: t("contact.title") }),
+      /* @__PURE__ */ jsx("p", { children: t("contact.body") }),
+      /* @__PURE__ */ jsx("strong", { children: "E-mail:" }),
+      " ",
+      /* @__PURE__ */ jsx("a", { href: "mailto:tim@variancesolutions.nl", children: "tim@variancesolutions.nl" }),
+      /* @__PURE__ */ jsx("br", {}),
+      /* @__PURE__ */ jsx("strong", { children: "LinkedIn:" }),
+      " ",
+      /* @__PURE__ */ jsx("a", { href: "https://www.linkedin.com/company/variancesolutions", children: "Variance Solutions" }),
+      /* @__PURE__ */ jsx("br", {}),
+      /* @__PURE__ */ jsxs("strong", { children: [
+        t("contact.kvk"),
+        ":"
+      ] }),
+      " ",
+      /* @__PURE__ */ jsx("a", { href: "https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance", children: "75766809" })
+    ] }) })
+  ] });
 }
-function AppContainer() {
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(Header$1, null), /* @__PURE__ */ React.createElement(Body, null));
+function App({ locale }) {
+  return /* @__PURE__ */ jsxs(I18nProvider, { locale, children: [
+    /* @__PURE__ */ jsx(Header$1, {}),
+    /* @__PURE__ */ jsx(Body, {})
+  ] });
 }
 function createEmotionCache() {
   return createCache({
     key: "css"
   });
 }
-async function render() {
+async function render(req) {
   const emotionCache = createEmotionCache();
   const {
     extractCriticalToChunks,
     constructStyleTagsFromChunks
   } = createEmotionServer(emotionCache);
   async function renderApp() {
+    var _a;
     const helmetContext = {};
     const html = ReactDOMServer.renderToString(
-      /* @__PURE__ */ React.createElement(AppContainer, null)
+      /* @__PURE__ */ jsx(App, { locale: (_a = req.cookies) == null ? void 0 : _a.locale })
     );
     const emotionChunks = extractCriticalToChunks(html);
     const css = constructStyleTagsFromChunks(emotionChunks);
@@ -363,5 +469,6 @@ async function render() {
   }
 }
 export {
-  render as default
+  render
 };
+//# sourceMappingURL=entry-server.mjs.map

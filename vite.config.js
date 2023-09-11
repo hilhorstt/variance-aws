@@ -27,9 +27,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             build: {
                 sourcemap: true,
             },
-            ssr: {
-                noExternal: true,
-            },
         } : {}),
     };
 });
