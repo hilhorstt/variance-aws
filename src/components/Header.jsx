@@ -1,30 +1,25 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
-import i18n, { locale, setHtmlLangAttribute } from '../i18n/i18n';
-import styles from './style.scss';
+import { setCookie } from '../services/cookies';
+import { setHtmlLangAttribute } from '../services/i18n';
+import styles from './styles.module.scss';
 
 class Header extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.state = {
-            currentLanguage: locale,
-        };
         this.changeLanguage = this.changeLanguage.bind(this);
     }
 
     changeLanguage(event) {
+        const { i18n } = this.props;
         const lng = event.target.dataset.lang;
-        localStorage.setItem('locale', lng);
+        setCookie('locale', lng);
         i18n.changeLanguage(lng);
         setHtmlLangAttribute(lng);
-        this.setState({
-            currentLanguage: lng,
-        });
     }
 
     renderLangButtons() {
-        const { currentLanguage } = this.state;
         const languages = [
             {
                 description: 'Nederlands',
@@ -43,7 +38,8 @@ class Header extends React.PureComponent {
             },
         ];
         return languages.map((lang) => {
-            const isCurrent = currentLanguage === lang.langCode;
+            const { i18n } = this.props;
+            const isCurrent = i18n.language === lang.langCode;
             return (
                 <li key={`${lang.langCode}_button`}>
                     <button
@@ -84,6 +80,7 @@ class Header extends React.PureComponent {
 
 Header.propTypes = {
     t: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired,
 };
 
 export default withTranslation()(Header);

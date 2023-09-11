@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from './style.scss';
+import styles from './styles.module.scss';
 import Experience from './Experience';
 import TechStack from './TechStack';
+import logo from '../images/variance-solutions-logo.svg';
+import me from '../images/tim-hilhorst.jpg';
 
 function Body() {
     const { t } = useTranslation();
@@ -11,7 +13,7 @@ function Body() {
             <section className={`${styles.section} ${styles.welcome}`}>
                 <div className={styles.body}>
                     <div className={styles.logo}>
-                        <img src={`${window.assetRoot}images/variance-solutions-logo.svg`} alt="Variance Solutions logo" />
+                        <img src={logo} alt="Variance Solutions logo" />
                     </div>
                 </div>
                 <div className={styles.title}>
@@ -21,7 +23,7 @@ function Body() {
             <section className={styles.section}>
                 <div className={styles.body}>
                     <h2 id="personal-note">{t('about.title')}</h2>
-                    <img className={styles.profilePhoto} src={`${window.assetRoot}images/tim-hilhorst.jpg`} alt="Tim Hilhorst" />
+                    <img className={styles.profilePhoto} src={me} alt="Tim Hilhorst" />
                     <div dangerouslySetInnerHTML={{ __html: t('about.body') }} />
                 </div>
             </section>

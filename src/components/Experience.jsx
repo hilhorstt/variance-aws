@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation, withTranslation } from 'react-i18next';
-import styles from './style.scss';
+import styles from './styles.module.scss';
 
 function Project({ projectKey, startDate }) {
     const { t } = useTranslation();
