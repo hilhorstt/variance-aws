@@ -71,7 +71,7 @@ async function createServer() {
         }
     }
 
-    app.use('/', doRender);
+    app.get('*', doRender);
 
     const port = isProduction ? PORT : vite.config.server.port;
     app.listen(port, '0.0.0.0', () => {
