@@ -2,6 +2,7 @@ import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom/server';
 import App from './components/App';
 import createEmotionCache from './createEmotionCache';
 
@@ -19,7 +20,12 @@ export async function render(req) {
 
         const html = renderToString(
             <CacheProvider value={emotionCache}>
-                <App locale={req.cookies?.locale} helmetContext={helmetContext} />
+                <StaticRouter location={req.url}>
+                    <App
+                        locale={req.subdomains?.[1] || 'nl'}
+                        helmetContext={helmetContext}
+                    />
+                </StaticRouter>
             </CacheProvider>,
         );
         // Grab the CSS from emotion

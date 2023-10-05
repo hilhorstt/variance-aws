@@ -1,25 +1,40 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import StyledHeader from '../styled/StyledHeader';
+
+const TechStackWrapper = styled.div`
+  display: flex;
+  background: white;
+  overflow-x: auto;
+  margin: -3em 0;
+  height: calc(100vh - 5em);
+  @media only screen and (max-width: 600px) {
+    padding-top: 5em;
+  }
+`;
 
 const TechStackContainer = styled.div`
   display: flex;
-  max-width: 1000px;
   margin: 0 auto;
   .techStackTitle {
-    font-size: 1.4em;
+    font-size: 1.4rem;
     display: flex;
-    padding: 2em;
-    align-items: center;
+    padding: 2rem;
+    align-items: start  ;
     min-width: 10em;
+    max-width: 14em;
+    @media only screen and (max-width: 600px) {
+      padding: 2rem 1rem;
+    }
   }
   .list {
-    padding: 1em;
+    padding: 2rem 1rem;
     min-width: 10em;
-    max-width: 15em;
+    max-width: 14em;
     h3 {
       display: flex;
-      align-items: center;
+      align-items: start;
       font-size: 1.3em;
       margin: 0 0 0.5em 0;
       height: 4.5em;
@@ -52,62 +67,64 @@ const TechStackContainer = styled.div`
 function TechStack() {
     const { t } = useTranslation();
     return (
-        <TechStackContainer>
-            <div className="techStackTitle">
-                <h2 id="tech-stack">{t('techStack.title')}</h2>
-            </div>
-            <div className="list">
-                <h3>Languages, frameworks, libraries</h3>
-                <ul>
-                    <li className="level1">
-                        React, ES6/Typescript, Redux (thunk & sagas)
-                    </li>
-                    <li className="level1">CSS3, SASS, CSS modules</li>
-                    <li className="level1">Material UI, Semantic UI</li>
-                    <li className="level2">NodeJS</li>
-                    <li className="level3">Backbone, Bootstrap, underscoreJS</li>
-                    <li className="level3">Handlebars, Marionette, JQuery</li>
-                    <li className="level3">Java, SQL, XSLT</li>
-                </ul>
-            </div>
-            <div className="list">
-                <h3>Compilers, services & testing</h3>
-                <ul>
-                    <li className="level1">Webpack, Gulp</li>
-                    <li className="level1">Jest, Mocha</li>
-                    <li className="level2">
-                        Lighthouse, Accessibility Insights
-                    </li>
-                    <li className="level2">
-                        Puppeteer, BrowserStack, Percy, XCode, Postman
-                    </li>
-                    <li className="level2">
-                        EC2/S3, Lambda, Beanstalk, Route53 (AWS)
-                    </li>
-                    <li className="level3">TeamCity, Github Actions</li>
-                </ul>
-            </div>
-            <div className="list">
-                <h3>IDE & Design</h3>
-                <ul>
-                    <li className="level1">
-                        IntelliJ, WebStorm, Sublime, SQLDeveloper
-                    </li>
-                    <li className="level2">
-                        Photoshop, Illustrator, InDesign, Premiere
-                    </li>
-                </ul>
-            </div>
-            <div className="list">
-                <h3>Agile, planning & process</h3>
-                <ul>
-                    <li className="level1">Certified Scrum Master</li>
-                    <li className="level1">JIRA, Confluence</li>
-                    <li className="level2">Product team</li>
-                    <li className="level2">Backlog prioritisation</li>
-                </ul>
-            </div>
-        </TechStackContainer>
+        <TechStackWrapper>
+            <TechStackContainer>
+                <div className="techStackTitle">
+                    <StyledHeader id="tech-stack">{t('techStack.title')}</StyledHeader>
+                </div>
+                <div className="list">
+                    <h3>Languages, frameworks, libraries</h3>
+                    <ul>
+                        <li className="level1">
+                            React, ES6/Typescript, Redux (thunk & sagas)
+                        </li>
+                        <li className="level1">CSS3, SASS, CSS modules</li>
+                        <li className="level1">Material UI, Semantic UI</li>
+                        <li className="level2">NodeJS</li>
+                        <li className="level3">Backbone, Bootstrap, underscoreJS</li>
+                        <li className="level3">Handlebars, Marionette, JQuery</li>
+                        <li className="level3">Java, SQL, XSLT</li>
+                    </ul>
+                </div>
+                <div className="list">
+                    <h3>Compilers, services & testing</h3>
+                    <ul>
+                        <li className="level1">Webpack, Gulp</li>
+                        <li className="level1">Jest, Mocha</li>
+                        <li className="level2">
+                            Lighthouse, Accessibility Insights
+                        </li>
+                        <li className="level2">
+                            Puppeteer, BrowserStack, Percy, XCode, Postman
+                        </li>
+                        <li className="level2">
+                            EC2/S3, Lambda, Beanstalk, Route53 (AWS)
+                        </li>
+                        <li className="level3">TeamCity, Github Actions</li>
+                    </ul>
+                </div>
+                <div className="list">
+                    <h3>IDE & Design</h3>
+                    <ul>
+                        <li className="level1">
+                            IntelliJ, WebStorm, Sublime, SQLDeveloper
+                        </li>
+                        <li className="level2">
+                            Photoshop, Illustrator, InDesign, Premiere
+                        </li>
+                    </ul>
+                </div>
+                <div className="list">
+                    <h3>Agile, planning & process</h3>
+                    <ul>
+                        <li className="level1">Certified Scrum Master</li>
+                        <li className="level1">JIRA, Confluence</li>
+                        <li className="level2">Product team</li>
+                        <li className="level2">Backlog prioritisation</li>
+                    </ul>
+                </div>
+            </TechStackContainer>
+        </TechStackWrapper>
     );
 }
 

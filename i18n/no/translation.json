@@ -1,7 +1,12 @@
 {
   "header": {
+    "close": "Lukk",
+    "menu": "Meny",
     "languages": "Språk",
     "jumpToContact": "Hopp til kontakt"
+  },
+  "home": {
+    "title": "Home"
   },
   "splash": {
     "header": "Frilans lead front-end utvikler, tilgjengelighets-auditor og sertifisert scrum master"

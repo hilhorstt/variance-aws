@@ -14,10 +14,6 @@ const languageMap = {
     'nl-BE': 'nl',
 };
 
-export const setHtmlLangAttribute = (lng) => {
-    if (typeof document !== 'undefined') document.getElementsByTagName('html')[0].setAttribute('lang', lng);
-};
-
 const getLocale = () => {
     if (typeof navigator !== 'undefined' && languageMap[navigator.language]) {
         return languageMap[navigator.language];
@@ -30,7 +26,6 @@ export const locale = getLocale();
 const defaultLocale = 'nl';
 
 export function I18nProvider({ locale, children }) {
-    console.log(locale);
     const i18nInstance = useMemo(() => i18next.createInstance({
         fallbackLng: defaultLocale,
         lng: locale || defaultLocale,

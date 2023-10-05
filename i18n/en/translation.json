@@ -1,7 +1,12 @@
 {
   "header": {
+    "close": "Close",
+    "menu": "Menu",
     "languages": "Languages",
     "jumpToContact": "Jump to contact"
+  },
+  "home": {
+    "title": "Home"
   },
   "splash": {
     "header": "Freelance lead front-end developer, accessibility auditor & certified scrum master"

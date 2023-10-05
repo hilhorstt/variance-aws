@@ -1,14 +1,16 @@
 import React from 'react';
 import { CacheProvider } from '@emotion/react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 import App from './components/App';
 import createEmotionCache from './createEmotionCache';
-import { getCookie } from './services/cookies';
 
 const emotionCache = createEmotionCache();
 
 const container = document.getElementById('root');
+const arr = window.location.hostname.split('.');
+const locale = arr.length === 3 ? arr[0] : 'nl';
 
 function render(finalContainer, nodes) {
     const isSSR = import.meta.env.MODE !== 'nossr';
@@ -22,7 +24,9 @@ function render(finalContainer, nodes) {
 render(
     container, (
         <CacheProvider value={emotionCache}>
-            <App locale={getCookie('locale') || 'nl'} />
+            <BrowserRouter>
+                <App locale={locale} />
+            </BrowserRouter>
         </CacheProvider>
     ),
 );

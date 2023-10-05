@@ -71,8 +71,9 @@ async function createServer() {
         }
     }
 
-    app.get('/', doRender);
-        const port = isProduction ? 3000 : vite.config.server.port;
+    app.use('/', doRender);
+
+    const port = isProduction ? PORT : vite.config.server.port;
     app.listen(port, '0.0.0.0', () => {
         console.log(`Started ${isProduction ? 'production' : 'development'} SSR on: http://localhost:${port}`);
     });
