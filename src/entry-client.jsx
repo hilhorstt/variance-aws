@@ -10,7 +10,14 @@ const emotionCache = createEmotionCache();
 
 const container = document.getElementById('root');
 const arr = window.location.hostname.split('.');
-const locale = arr.length === 3 ? arr[0] : 'nl';
+let locale = arr[0];
+if (arr.length === 3) {
+    if (locale === 'www') {
+        locale = 'nl';
+    }
+} else {
+    locale = 'nl';
+}
 
 function render(finalContainer, nodes) {
     const isSSR = import.meta.env.MODE !== 'nossr';

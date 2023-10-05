@@ -17,12 +17,17 @@ export async function render(req) {
 
     async function renderApp() {
         const helmetContext = {};
+        const subdomain = req.subdomains[0];
+        let locale = subdomain;
+        if (!subdomain || subdomain === 'www') {
+            locale = 'nl';
+        }
 
         const html = renderToString(
             <CacheProvider value={emotionCache}>
                 <StaticRouter location={req.url}>
                     <App
-                        locale={req.subdomains?.[1] || 'nl'}
+                        locale={locale}
                         helmetContext={helmetContext}
                     />
                 </StaticRouter>

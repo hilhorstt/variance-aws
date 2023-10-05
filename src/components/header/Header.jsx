@@ -169,8 +169,14 @@ class Header extends React.PureComponent {
             i18n.changeLanguage(lng);
         } else {
             const subdomain = lng === 'nl' ? 'www' : lng;
-            const domain = host.split('.')[0];
-            window.location.href = `${protocol}//${subdomain}.${domain}${pathname}`;
+            const arr = window.location.host.split('.');
+            if (arr.length === 3) {
+                arr[0] = subdomain;
+            } else {
+                arr.unshift(subdomain);
+            }
+            const hostname = arr.join('.');
+            window.location.href = `${protocol}//${hostname}${pathname}`;
         }
     }
 
