@@ -15,6 +15,9 @@
     "title": "About Variance",
     "body": "<p>My name is Tim Hilhorst, freelancer under the name Variance Solutions based in Delft, and welcome to my page.</p>\n                        <p>I aim to combine design, accessibility and front-end technology from specification to realisation. As an architecture graduate of the Technical University of Delft, I have a solution-based approach to solving problems from sketch to detail.</p>\n                        <p>I enjoy building and improving web applications that provide an inclusive experience for all its users. I do so by universal design, accessibility code standards, carrying out WCAG audits and writing readible, reusable code.</p>\n                        <p>I enjoy discussing user experience, visual designs, meeting accessibility standards and the latest technologies in front-end development.</p>"
   },
+  "error": {
+    "404": "Oh no! You came to a page that doesn't exist!"
+  },
   "experience": {
     "title": "Experience",
     "body": "",

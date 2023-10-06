@@ -15,6 +15,9 @@
     "title": "Om Variance",
     "body": "<p> Mitt navn er Tim Hilhorst, grunnlegger av Variance Solutions, og velkommen til selskapssiden min.</p>\n<p> Jeg tar sikte på å kombinere design, tilgjengelighet og front-end teknologi \n    fra spesifikasjon til realisering. Som arkitektutdannet ved Technical University of Delft \n    har jeg en løsningsbasert tilnærming til å løse problemer fra skisse til detalj. </p>\n<p> Jeg liker å bygge og forbedre webapplikasjoner som gir en inkluderende opplevelse for alle brukere. Jeg gjør det ved universell utforming, tilgjengelighetsstandarder for kode, gjennomføring av WCAG audits og skriving av lesbar, gjenbrukbar kode.</p>\n<p> Jeg liker å diskutere brukeropplevelser, visuelle design, møte tilgjengelighetsstandarder og de nyeste teknologiene innen front-end-utvikling.</p>"
   },
+  "error": {
+    "404": "Å nei! Du kom til en side som ikke eksisterer!"
+  },
   "experience": {
     "title": "Erfaring",
     "body": "",

@@ -15,6 +15,9 @@
     "title": "Over Variance",
     "body": "<p>Mijn naam is Tim Hilhorst, zzp'er onder de naam Variance Solutions woonachtig in Delft, en welkom op mijn pagina.</p>\n                        <p>Ik streef ernaar ontwerp en technologie te combineren van concept tot realisatie. Als afgestudeerd architect aan de Technische Universiteit van Delft ben ik een oplossingsgerichte ontwikkelaar met een oog voor design, ontwerp en analyse.</p>\n\n<p>In de afgelopen jaren heb ik bij kunnen dragen aan een verscheidenheid aan complexe webapplicaties voor digitale examens waar de nadruk ligt op stabiliteit, performance en webtoegankelijkheid.</p>\n\n<p>Ik geniet van het bespreken en realiseren van UX-concepten, visuele ontwerpen en de nieuwste trends op het gebied van front-end ontwikkeling en webtoegankelijkheid.</p>"
   },
+  "error": {
+    "404": "Oh nee! Je bent op een pagina beland die niet bestaat!"
+  },
   "experience": {
     "title": "Ervaring",
     "body": "",

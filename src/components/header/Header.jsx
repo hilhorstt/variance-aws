@@ -1,11 +1,30 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
 import { Helmet } from 'react-helmet-async';
-import { withTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { NavLink, useNavigate } from 'react-router-dom';
+import getLanguageRoute, { getTargetLangPathname, pages } from '../../services/routing';
 import closeIcon from './icon-close.svg';
 import menuIcon from './icon-menu.svg';
+
+const languages = [
+    {
+        description: 'Nederlands',
+        langCode: 'nl',
+        title: 'NL',
+    },
+    {
+        description: 'English',
+        langCode: 'en',
+        title: 'EN',
+    },
+    {
+        description: 'Norsk',
+        langCode: 'no',
+        title: 'NO',
+    },
+];
 
 function CustomNavLink({
     to, children, className, toggleMenu,
@@ -150,23 +169,21 @@ const NavBar = styled.nav`
   }
 `;
 
-class Header extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.changeLanguage = this.changeLanguage.bind(this);
-        this.toggleMenu = this.toggleMenu.bind(this);
-        this.state = {
-            open: false,
-        };
-    }
+function Header() {
+    const [open, setOpen] = useState();
+    const { t, i18n } = useTranslation();
+    const navigate = useNavigate();
 
-    changeLanguage(event) {
-        const { i18n } = this.props;
+    const changeLanguage = (event) => {
         const lng = event.target.dataset.lang;
 
         const { protocol, host, pathname } = window.location;
+        const path = getTargetLangPathname(pathname, i18n.language, lng);
+
         if (host.includes('localhost')) {
-            i18n.changeLanguage(lng);
+            i18n.changeLanguage(lng).then(() => {
+                navigate(path);
+            });
         } else {
             const subdomain = lng === 'nl' ? 'www' : lng;
             const arr = window.location.host.split('.');
@@ -176,108 +193,88 @@ class Header extends React.PureComponent {
                 arr.unshift(subdomain);
             }
             const hostname = arr.join('.');
-            window.location.href = `${protocol}//${hostname}${pathname}`;
+            window.location.href = `${protocol}//${hostname}${path}`;
         }
-    }
+    };
 
-    toggleMenu() {
-        const { open } = this.state;
-        this.setState({
-            open: !open,
-        });
-    }
+    const toggleMenu = () => {
+        setOpen(!open);
+    };
 
-    renderLangButtons() {
-        const languages = [
-            {
-                description: 'Nederlands',
-                langCode: 'nl',
-                title: 'NL',
-            },
-            {
-                description: 'English',
-                langCode: 'en',
-                title: 'EN',
-            },
-            {
-                description: 'Norsk',
-                langCode: 'no',
-                title: 'NO',
-            },
-        ];
-        return languages.map((lang) => {
-            const { i18n } = this.props;
-            const isCurrent = i18n.language === lang.langCode;
-            return (
-                <li key={`${lang.langCode}_button`}>
-                    <button
-                        type="button"
-                        onClick={this.changeLanguage}
-                        aria-label={lang.description}
-                        style={isCurrent ? { fontWeight: 'bold' } : {}}
-                        aria-current={isCurrent}
-                        data-lang={lang.langCode}
-                    >
-                        {lang.title}
-                    </button>
-                </li>
-            );
-        });
-    }
-
-    render() {
-        const { t, i18n } = this.props;
-        const { open } = this.state;
+    const renderLangButtons = useCallback(() => languages.map((lang) => {
+        const isCurrent = i18n.language === lang.langCode;
         return (
-            <header>
-                <Helmet
-                    defaultTitle={t('seo.title')}
-                    htmlAttributes={{ lang: i18n.language }}
+            <li key={`${lang.langCode}_button`}>
+                <button
+                    type="button"
+                    onClick={changeLanguage}
+                    aria-label={lang.description}
+                    style={isCurrent ? { fontWeight: 'bold' } : {}}
+                    aria-current={isCurrent}
+                    data-lang={lang.langCode}
                 >
-                    <meta name="description" content={t('seo.description')} />
-                    <meta name="keywords" content={t('seo.keywords')} />
-                    <link rel="alternate" hrefLang="nl-NL" href="https://www.variancesolutions.nl" />
-                    <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl" />
-                    <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl" />
-                </Helmet>
-                <Shortcut to="/contact">{t('header.jumpToContact')}</Shortcut>
-                {!open && (<StyledMenuButton onClick={this.toggleMenu}><img src={menuIcon} alt={t('header.menu')} /></StyledMenuButton>)}
-                <NavBar className={open ? 'open' : ''}>
-                    {open && (<StyledMenuButton onClick={this.toggleMenu}><img src={closeIcon} alt={t('header.close')} /></StyledMenuButton>)}
-                    <ul>
-                        <li>
-                            <StyledNavLink to="/" toggleMenu={this.toggleMenu}>
-                                {t('home.title')}
-                            </StyledNavLink>
-                        </li>
-                        <li>
-                            <StyledNavLink to="/ervaring" toggleMenu={this.toggleMenu}>
-                                {t('experience.title')}
-                            </StyledNavLink>
-                        </li>
-                        <li>
-                            <StyledNavLink to="/tech-stack" toggleMenu={this.toggleMenu}>
-                                {t('techStack.title')}
-                            </StyledNavLink>
-                        </li>
-                        <li>
-                            <StyledNavLink to="/contact" toggleMenu={this.toggleMenu}>
-                                {t('contact.title')}
-                            </StyledNavLink>
-                        </li>
-                    </ul>
-                    <ul className="languagePicker" aria-label={t('header.languages')}>
-                        {this.renderLangButtons()}
-                    </ul>
-                </NavBar>
-            </header>
+                    {lang.title}
+                </button>
+            </li>
         );
-    }
+    }), []);
+
+    return (
+        <header>
+            <Helmet
+                defaultTitle={t('seo.title')}
+                htmlAttributes={{ lang: i18n.language }}
+            >
+                <meta name="description" content={t('seo.description')} />
+                <meta name="keywords" content={t('seo.keywords')} />
+                <link rel="alternate" hrefLang="nl-NL" href="https://www.variancesolutions.nl" />
+                <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl" />
+                <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl" />
+            </Helmet>
+            <Shortcut to={getLanguageRoute(pages.CONTACT, i18n)}>{t('header.jumpToContact')}</Shortcut>
+            {!open && (<StyledMenuButton onClick={toggleMenu}><img src={menuIcon} alt={t('header.menu')} /></StyledMenuButton>)}
+            <NavBar className={open ? 'open' : ''}>
+                {open && (<StyledMenuButton onClick={toggleMenu}><img src={closeIcon} alt={t('header.close')} /></StyledMenuButton>)}
+                <ul>
+                    <li>
+                        <StyledNavLink
+                            to={getLanguageRoute(pages.HOME, i18n)}
+                            toggleMenu={toggleMenu}
+                        >
+                            {t('home.title')}
+                        </StyledNavLink>
+                    </li>
+                    <li>
+                        <StyledNavLink
+                            to={getLanguageRoute(pages.EXPERIENCE, i18n)}
+                            toggleMenu={toggleMenu}
+                        >
+                            {t('experience.title')}
+                        </StyledNavLink>
+                    </li>
+                    <li>
+                        <StyledNavLink
+                            to={getLanguageRoute(pages.TECH_STACK, i18n)}
+                            toggleMenu={toggleMenu}
+                        >
+                            {t('techStack.title')}
+                        </StyledNavLink>
+                    </li>
+                    <li>
+                        <StyledNavLink
+                            to={getLanguageRoute(pages.CONTACT, i18n)}
+                            toggleMenu={toggleMenu}
+                        >
+                            {t('contact.title')}
+                        </StyledNavLink>
+                    </li>
+                </ul>
+                <ul className="languagePicker" aria-label={t('header.languages')}>
+                    {renderLangButtons()}
+                </ul>
+            </NavBar>
+        </header>
+    );
 }
 
-Header.propTypes = {
-    t: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired,
-};
-
-export default withTranslation()(Header);
+export default Header;

@@ -9,8 +9,8 @@
 
     <url>
         <loc>https://www.variancesolutions.nl/ervaring</loc>
-        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/ervaring" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/ervaring" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/erfaring" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/experience" />
     </url>
     <url>
         <loc>https://www.variancesolutions.nl/tech-stack</loc>
@@ -19,7 +19,7 @@
     </url>
     <url>
         <loc>https://www.variancesolutions.nl/contact</loc>
-        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/contact" />
+        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/kontakt" />
         <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/contact" />
     </url>
 </urlset>

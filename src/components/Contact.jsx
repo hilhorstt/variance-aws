@@ -12,7 +12,7 @@ function Contact() {
                 defaultTitle={`${t('contact.title')} - ${t('seo.title')}`}
             >
                 <link rel="alternate" hrefLang="nl-NL" href="https://www.variancesolutions.nl/contact" />
-                <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl/contact" />
+                <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl/kontakt" />
                 <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl/contact" />
             </Helmet>
             <StyledHeader id="contact">{t('contact.title')}</StyledHeader>
