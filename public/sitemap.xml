@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://www.variancesolutions.nl/</loc>
+        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl" />
+    </url>
+
+    <url>
+        <loc>https://www.variancesolutions.nl/ervaring</loc>
+        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/ervaring" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/ervaring" />
+    </url>
+    <url>
+        <loc>https://www.variancesolutions.nl/tech-stack</loc>
+        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/tech-stack" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/tech-stack" />
+    </url>
+    <url>
+        <loc>https://www.variancesolutions.nl/contact</loc>
+        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/contact" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/contact" />
+    </url>
+</urlset>
