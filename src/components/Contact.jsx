@@ -63,14 +63,18 @@ function Contact() {
             <StyledDiv>
                 <div><img src={linkedInLogo} alt="LinkedIn" /></div>
                 <div>
-                    <a href="https://www.linkedin.com/company/variancesolutions">Variance</a>
+                    <a href="https://www.linkedin.com/company/variancesolutions" target="_blank" rel="noreferrer">Variance</a>
                     {' / '}
-                    <a href="https://www.linkedin.com/in/timhilhorst">Tim Hilhorst</a>
+                    <a href="https://www.linkedin.com/in/timhilhorst" target="_blank" rel="noreferrer">Tim Hilhorst</a>
                 </div>
             </StyledDiv>
             <StyledDiv>
                 <div><img src={kvkLogo} alt={t('contact.kvk')} /></div>
-                <div><a href="https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance">Variance (75766809)</a></div>
+                <div>
+                    <a href="https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer=757668090000&origq=variance" target="_blank" rel="noreferrer">
+                        Variance (75766809)
+                    </a>
+                </div>
             </StyledDiv>
         </StyledBody>
     );
