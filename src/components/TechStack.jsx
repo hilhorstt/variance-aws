@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import StyledHeader from '../styled/StyledHeader';
 
@@ -68,6 +69,13 @@ function TechStack() {
     const { t } = useTranslation();
     return (
         <TechStackWrapper>
+            <Helmet
+                defaultTitle={`${t('techStack.title')} - ${t('seo.title')}`}
+            >
+                <link rel="alternate" hrefLang="nl-NL" href="https://www.variancesolutions.nl/tech-stack" />
+                <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl/tech-stack" />
+                <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl/tech-stack" />
+            </Helmet>
             <TechStackContainer>
                 <div className="techStackTitle">
                     <StyledHeader id="tech-stack">{t('techStack.title')}</StyledHeader>

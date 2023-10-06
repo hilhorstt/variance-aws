@@ -1,6 +1,6 @@
 {
   "name": "variance-aws",
-  "version": "0.2.16",
+  "version": "0.2.19",
   "description": "Express/React set-up for variancesolutions.nl",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "npm run build:client && npm run build:server && npm run zip:version",
     "build:client": "vite build --outDir build/client",
     "build:server": "vite build --outDir build/server --ssr src/entry-server.jsx",
-    "zip:version": "zip versions/variance-beanstalk-v0.2.16.zip -r package.json server.mjs build/"
+    "zip:version": "zip versions/variance-beanstalk-v0.2.19.zip -r package.json server.mjs build/"
   },
   "author": "Tim Hilhorst",
   "license": "ISC",

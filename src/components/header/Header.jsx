@@ -62,7 +62,7 @@ const StyledNavLink = styled(CustomNavLink)`
   }
 `;
 
-const Shortcut = styled.a`
+const Shortcut = styled(NavLink)`
     position: absolute;
     width: 1px;
     height: 1px;
@@ -240,7 +240,7 @@ class Header extends React.PureComponent {
                     <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl" />
                     <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl" />
                 </Helmet>
-                <Shortcut href="#contact">{t('header.jumpToContact')}</Shortcut>
+                <Shortcut to="/contact">{t('header.jumpToContact')}</Shortcut>
                 {!open && (<StyledMenuButton onClick={this.toggleMenu}><img src={menuIcon} alt={t('header.menu')} /></StyledMenuButton>)}
                 <NavBar className={open ? 'open' : ''}>
                     {open && (<StyledMenuButton onClick={this.toggleMenu}><img src={closeIcon} alt={t('header.close')} /></StyledMenuButton>)}

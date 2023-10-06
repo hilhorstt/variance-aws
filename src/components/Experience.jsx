@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet-async';
 import { Trans, useTranslation, withTranslation } from 'react-i18next';
 import StyledHeader from '../styled/StyledHeader';
 
@@ -121,6 +122,13 @@ function Experience() {
     const { t } = useTranslation();
     return (
         <>
+            <Helmet
+                defaultTitle={`${t('experience.title')} - ${t('seo.title')}`}
+            >
+                <link rel="alternate" hrefLang="nl-NL" href="https://www.variancesolutions.nl/ervaring" />
+                <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl/ervaring" />
+                <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl/ervaring" />
+            </Helmet>
             <StyledHeader className="centered" id="experience">{t('experience.title')}</StyledHeader>
             <StyledDiv>
                 <ExperienceBlock>
