@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const StyledDiv = styled.div`
+interface StyledDivProps {
+    className: string;
+    children: React.ReactNode;
+}
+
+const StyledSection = styled.section<StyledDivProps>`
   &.body {
     width: calc(100% - 8em);
     font-size: 1.2em;
@@ -25,23 +29,18 @@ const StyledDiv = styled.div`
   }
 `;
 
-function StyledBody({ children, className, style }) {
-    return (
-        <StyledDiv className={['body', className].join(' ')} style={style}>
-            {children}
-        </StyledDiv>
-    );
+interface StyledBodyProps {
+    children: React.ReactNode;
+    style?: object;
+    className?: string;
 }
 
-StyledBody.defaultProps = {
-    className: '',
-    style: {},
-};
-
-StyledBody.propTypes = {
-    className: PropTypes.string,
-    style: PropTypes.object,
-    children: PropTypes.node.isRequired,
-};
+function StyledBody({ children, className = '', style = {} }: StyledBodyProps) {
+    return (
+        <StyledSection className={['body', className].join(' ')} style={style}>
+            {children}
+        </StyledSection>
+    );
+}
 
 export default StyledBody;

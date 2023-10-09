@@ -18,6 +18,11 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/tech-stack" />
     </url>
     <url>
+        <loc>https://www.variancesolutions.nl/digitale-toegankelijkheid</loc>
+        <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/universell-utforming" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/web-accessibility" />
+    </url>
+    <url>
         <loc>https://www.variancesolutions.nl/contact</loc>
         <xhtml:link rel="alternate" hreflang="no" href="https://no.variancesolutions.nl/kontakt" />
         <xhtml:link rel="alternate" hreflang="en" href="https://en.variancesolutions.nl/contact" />

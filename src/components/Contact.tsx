@@ -7,7 +7,11 @@ import StyledHeader from '../styled/StyledHeader';
 import kvkLogo from '../images/kvk.svg';
 import linkedInLogo from '../images/linkedin.svg';
 
-const StyledDiv = styled.div`
+interface StyledDivProps {
+    children: React.ReactNode
+}
+
+const StyledDiv = styled.div<StyledDivProps>`
   display: flex;
   padding: 1em 0;
   align-items: center;

@@ -15,7 +15,7 @@ const StyledDiv = styled.div`
   }
 `;
 
-function Error() {
+function ErrorPage() {
     const { t } = useTranslation();
     return (
         <StyledDiv>
@@ -25,4 +25,4 @@ function Error() {
     );
 }
 
-export default Error;
+export default ErrorPage;

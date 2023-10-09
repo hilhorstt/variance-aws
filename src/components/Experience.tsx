@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
-import { Trans, useTranslation, withTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import StyledHeader from '../styled/StyledHeader';
 
-const StyledDiv = styled.div`
+const StyledSection = styled.section`
   width: calc(100% - 8em);
   font-size: 1.2em;
   padding: 3em;
@@ -44,9 +43,10 @@ const ExperienceBlock = styled.article`
       justify-content: center;
       padding: 3rem;
       text-align: right;
-      min-width: 10em;
+      min-width: 14em;
       max-width: 30%;
       @media only screen and (max-width: 600px) {
+        min-width: 10em;
         padding: 2rem;
       }
       h3 {
@@ -92,7 +92,12 @@ const ExperienceBlock = styled.article`
   }
 `;
 
-function Project({ projectKey, startDate }) {
+interface ProjectProps {
+    projectKey: string;
+    startDate: string;
+}
+
+function Project({ projectKey, startDate }: ProjectProps) {
     const { t } = useTranslation();
     const captionKey = `experience.${projectKey}.`;
     return (
@@ -106,17 +111,12 @@ function Project({ projectKey, startDate }) {
             </div>
             <div className="header">
                 <div className="lineLeft" />
-                <div className="date">{startDate}</div>
+                <h2 className="date">{startDate}</h2>
                 <div className="lineRight" />
             </div>
         </ExperienceBlock>
     );
 }
-
-Project.propTypes = {
-    projectKey: PropTypes.string.isRequired,
-    startDate: PropTypes.string.isRequired,
-};
 
 function Experience() {
     const { t } = useTranslation();
@@ -130,20 +130,20 @@ function Experience() {
                 <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl/experience" />
             </Helmet>
             <StyledHeader className="centered" id="experience">{t('experience.title')}</StyledHeader>
-            <StyledDiv>
+            <StyledSection>
                 <ExperienceBlock>
                     <div className="header">
                         <div className="lineLeft" />
-                        <div className="date">{t('experience.today')}</div>
+                        <h2 className="date">{t('experience.today')}</h2>
                         <div className="lineRight" />
                     </div>
                 </ExperienceBlock>
                 <Project projectKey="variance" startDate="09 / 2019" />
                 <Project projectKey="inspera" startDate="11 / 2015" />
                 <Project projectKey="cognizant" startDate="08 / 2013" />
-            </StyledDiv>
+            </StyledSection>
         </>
     );
 }
 
-export default withTranslation()(Experience);
+export default Experience;

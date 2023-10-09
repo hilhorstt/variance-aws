@@ -6,7 +6,7 @@ import logoSvg from '../images/variance-solutions-logo.svg';
 import StyledBody from '../styled/StyledBody';
 import StyledHeader from '../styled/StyledHeader';
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled.header`
   font-size: 1.2em;
   padding: 5em;
   margin: -3em auto 0;
@@ -52,9 +52,9 @@ function Home() {
                     <img width={400} height={113} src={logoSvg} alt="Variance Solutions logo" />
                 </Logo>
             </LogoWrapper>
-            <div className="title">
+            <section className="title">
                 <h1>{t('splash.header')}</h1>
-            </div>
+            </section>
 
             <StyledBody style={{ marginTop: '3rem' }}>
                 <StyledHeader id="personal-note">{t('about.title')}</StyledHeader>

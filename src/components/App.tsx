@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import Routing from '../Routing';
@@ -7,7 +6,12 @@ import Content from './Content';
 import Header from './header/Header';
 import Global from './Global';
 
-function App({ locale, helmetContext }) {
+interface AppProps {
+    locale: string;
+    helmetContext: object;
+}
+
+function App({ locale, helmetContext = {} }: AppProps) {
     return (
         <HelmetProvider context={helmetContext}>
             <I18nProvider locale={locale}>
@@ -20,14 +24,5 @@ function App({ locale, helmetContext }) {
         </HelmetProvider>
     );
 }
-
-App.defaultProps = {
-    helmetContext: {},
-};
-
-App.propTypes = {
-    locale: PropTypes.string.isRequired,
-    helmetContext: PropTypes.object,
-};
 
 export default App;

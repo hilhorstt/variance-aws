@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
 
-const StyledSection = styled.section`
+const StyledMain = styled.main`
     .title {
       text-align: center;
       width: calc(100% - 3em);
@@ -22,11 +22,15 @@ const StyledSection = styled.section`
     padding-bottom: 3em;
 `;
 
-function Content({ children }) {
+interface ContentProps {
+    children: React.ReactNode,
+}
+
+function Content({ children }: ContentProps) {
     return (
-        <StyledSection>
+        <StyledMain>
             {children}
-        </StyledSection>
+        </StyledMain>
     );
 }
 

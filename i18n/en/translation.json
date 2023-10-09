@@ -1,4 +1,8 @@
 {
+  "accessibility": {
+    "body": "As a freelancer, I aim to make a meaningful contribution to WCAG (Web Content Accessibility Guidelines) by leveraging my expertise in usability, accessibility and inclusion for web applications. I specialize in creating easy-to-follow development workflows for developers and designers to validate product iterations with WCAG standards. My services extend to providing quality code contributions, bug fixes and audits, while guiding fellow developers in implementing accessibility improvements. By advocating for good code and testing standards, I help companies to make their web applications inclusive to all its users.",
+    "title": "Web Accessibility"
+  },
   "header": {
     "close": "Close",
     "menu": "Menu",
@@ -23,12 +27,12 @@
     "body": "",
     "today": "Today",
     "variance": {
-      "title": "Freelance Senior Front-end Developer",
+      "title": "Freelance Lead Front-end Developer",
       "subTitle": "Variance Solutions, Delft",
       "body": "<p>Currently contributing to educational software as lead front-end developer with a focus on React + Redux & NodeJS, accessibility testing & tools and guiding fellow developers.</p>\n                    <p>The solution is cloud-based running on AWS S3/EC2 and Lambda services. I contribute with domain specific knowledge, combined with knowledge and know-how regarding WCAG standards and an eye for user experience and design.</p>"
     },
     "inspera": {
-      "title": "Freelance senior front-end developer and Scrum Master",
+      "title": "Senior front-end developer and Scrum Master",
       "subTitle": "Inspera Assessment, Oslo",
       "body": "<p>Front-end developer, scrum master and WCAG promoter, focussing on student and author experience for Inspera's digital examination solution.</p>\n\n                            <p><strong>New tech:</strong><br />\n                                TypeScript/ES6, React, Redux (Saga), SASS + CSS modules, Webpack, Mocha/Jest, Semantic UI</p>\n\n                            <p><strong>Older stack:</strong><br />\n                                React, Backbone, Bootstrap, Underscore, Gulp</p>\n\n                            <p><strong>Ancient stack:</strong><br />\n                                Handlebars, MarionetteJS, Backbone, JQuery, XSLT, Gulp</p>\n\n                            <p><strong>Familiar with AWS cloud services:</strong><br />\n                                S3, EC2, CloudFront, Route 53, Lambda</p>\n\n                            <p><strong>Not entirely proud of, but mentionable:</strong><br />\n                                SQL, Java, TeamCity, JIRA/Confluence</p>"
     },

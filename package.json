@@ -1,6 +1,6 @@
 {
   "name": "variance-aws",
-  "version": "0.2.22",
+  "version": "0.2.23",
   "description": "Express/React set-up for variancesolutions.nl",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "npm run build:client && npm run build:server && npm run zip:version",
     "build:client": "vite build --outDir build/client",
     "build:server": "vite build --outDir build/server --ssr src/entry-server.jsx",
-    "zip:version": "zip versions/variance-beanstalk-v0.2.22.zip -r package.json server.mjs build/"
+    "zip:version": "zip versions/variance-beanstalk-v0.2.23.zip -r package.json server.mjs build/"
   },
   "author": "Tim Hilhorst",
   "license": "ISC",
@@ -29,20 +29,23 @@
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@types/react": "^18.2.25",
     "@vitejs/plugin-react": "^4.0.4",
     "eslint": "^8.40.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
-    "i18next": "^22.4.15",
+    "i18next": "^23.5.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
-    "react-i18next": "^12.2.2",
+    "react-i18next": "^13.2.2",
     "react-router-dom": "^6.16.0",
     "sass": "^1.62.1",
+    "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-compression": "^0.5.1"
   },

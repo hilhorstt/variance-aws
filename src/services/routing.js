@@ -2,6 +2,7 @@ export const pages = {
     HOME: 'HOME',
     EXPERIENCE: 'EXPERIENCE',
     TECH_STACK: 'TECH_STACK',
+    ACCESSIBILITY: 'ACCESSIBILITY',
     CONTACT: 'CONTACT',
 };
 
@@ -21,6 +22,11 @@ const routes = {
         en: '/tech-stack',
         no: '/tech-stack',
     },
+    [pages.ACCESSIBILITY]: {
+        nl: '/digitale-toegankelijkheid',
+        en: '/web-accessibility',
+        no: '/universell-utforming',
+    },
     [pages.CONTACT]: {
         nl: '/contact',
         en: '/contact',
@@ -29,7 +35,7 @@ const routes = {
 };
 
 export function getTargetLangPathname(path, locale, targetLocale) {
-    const match = Object.keys(pages).find((key) => routes[key][locale] === path);
+    const match = Object.keys(pages).find((key) => routes[key][locale] === path) || pages.HOME;
     return routes[match][targetLocale];
 }
 

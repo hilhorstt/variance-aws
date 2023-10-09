@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
 import { Helmet } from 'react-helmet-async';
@@ -26,9 +25,16 @@ const languages = [
     },
 ];
 
+interface CustomNavLinkProps {
+    to: string;
+    children: React.ReactNode;
+    className?: string;
+    toggleMenu: () => void;
+}
+
 function CustomNavLink({
     to, children, className, toggleMenu,
-}) {
+}: CustomNavLinkProps) {
     return (
         <NavLink
             className={({ isActive }) => (isActive ? `${className} active` : className)}
@@ -39,13 +45,6 @@ function CustomNavLink({
         </NavLink>
     );
 }
-
-CustomNavLink.propTypes = {
-    to: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string.isRequired,
-    toggleMenu: PropTypes.func.isRequired,
-};
 
 const StyledNavLink = styled(CustomNavLink)`
   background: transparent;
@@ -170,12 +169,12 @@ const NavBar = styled.nav`
 `;
 
 function Header() {
-    const [open, setOpen] = useState();
+    const [open, setOpen] = useState(false);
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
 
-    const changeLanguage = (event) => {
-        const lng = event.target.dataset.lang;
+    const changeLanguage = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const lng = event.currentTarget.dataset.lang || 'nl';
 
         const { protocol, host, pathname } = window.location;
         const path = getTargetLangPathname(pathname, i18n.language, lng);
@@ -258,6 +257,14 @@ function Header() {
                             toggleMenu={toggleMenu}
                         >
                             {t('techStack.title')}
+                        </StyledNavLink>
+                    </li>
+                    <li>
+                        <StyledNavLink
+                            to={getLanguageRoute(pages.ACCESSIBILITY, i18n)}
+                            toggleMenu={toggleMenu}
+                        >
+                            {t('accessibility.title')}
                         </StyledNavLink>
                     </li>
                     <li>

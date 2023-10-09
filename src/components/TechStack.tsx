@@ -33,7 +33,7 @@ const TechStackContainer = styled.div`
     padding: 2rem 1rem;
     min-width: 10em;
     max-width: 14em;
-    h3 {
+    h2 {
       display: flex;
       align-items: start;
       font-size: 1.3em;
@@ -81,7 +81,7 @@ function TechStack() {
                     <StyledHeader id="tech-stack">{t('techStack.title')}</StyledHeader>
                 </div>
                 <div className="list">
-                    <h3>Languages, frameworks, libraries</h3>
+                    <h2>Languages, frameworks, libraries</h2>
                     <ul>
                         <li className="level1">
                             React, ES6/Typescript, Redux (thunk & sagas)
@@ -95,7 +95,7 @@ function TechStack() {
                     </ul>
                 </div>
                 <div className="list">
-                    <h3>Compilers, services & testing</h3>
+                    <h2>Compilers, services & testing</h2>
                     <ul>
                         <li className="level1">Webpack, Gulp</li>
                         <li className="level1">Jest, Mocha</li>
@@ -112,7 +112,7 @@ function TechStack() {
                     </ul>
                 </div>
                 <div className="list">
-                    <h3>IDE & Design</h3>
+                    <h2>IDE & Design</h2>
                     <ul>
                         <li className="level1">
                             IntelliJ, WebStorm, Sublime, SQLDeveloper
@@ -123,7 +123,7 @@ function TechStack() {
                     </ul>
                 </div>
                 <div className="list">
-                    <h3>Agile, planning & process</h3>
+                    <h2>Agile, planning & process</h2>
                     <ul>
                         <li className="level1">Certified Scrum Master</li>
                         <li className="level1">JIRA, Confluence</li>
