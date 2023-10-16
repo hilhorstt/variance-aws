@@ -51,8 +51,20 @@
     "kvk": "KvK registrering"
   },
     "seo": {
-      "description": "Tim Hilhorst, freelance lead front-end utvikler, universell utforming og sertifisert scrum master",
-      "keywords": "tilgjengelighet, digital universell utforming, tilgjengelighet, wcag, freelance, front-end, utvikler, lead developer, scrum master",
+      "description": {
+        "accessibility": "Variance hjelper med å gjøre nettapplikasjonen din tilgjengelig for alle brukere.",
+        "contact": "Du kan kontakte Variance Solutions via e-post og gjennom LinkedIn. Finn selskapsinformasjonen på Handelsregisterets nettsted.",
+        "experience": "En oppsummering av min arbeidserfaring som frilanser hos Variance og som ansatt hos Inspera og Cognizant.",
+        "home": "Tim Hilhorst, frilans hovedfrontendutvikler, tilgjengelighetsrevisor og sertifisert scrum-mester.",
+        "techStack": "En oversikt over teknologistabelen jeg er mest kjent med."
+      },
+      "keywords": {
+        "accessibility": "tilgjengelighet, universell utforming, accessibility, a11y, wcag, react, front-end utvikler, scrum master",
+        "contact": "E-mail, LinkedIn, KVK, Variance, Tim Hilhorst",
+        "experience": "Erfaring, arbeidserfaring, gjennomførte prosjekter, digital tilgjengelighet, frilans, front-end utvikler, react, redux",
+        "home": "tilgjengelighet, digital universell utforming, tilgjengelighet, wcag, freelance, front-end utvikler, lead developer, scrum master",
+        "techStack": "React, Redux, Lighthouse, MaterialUI, NodeJS, SASS, styled components, CSS"
+      },
       "title": "Tim Hilhorst | Variance - Lead Front-end Utvikler & Web Accessibility Auditor"
     }
 }

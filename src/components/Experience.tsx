@@ -125,6 +125,8 @@ function Experience() {
             <Helmet
                 defaultTitle={`${t('experience.title')} - ${t('seo.title')}`}
             >
+                <meta name="description" content={t('seo.description.experience')} />
+                <meta name="keywords" content={t('seo.keywords.contact.experience')} />
                 <link rel="alternate" hrefLang="nl-NL" href="https://www.variancesolutions.nl/ervaring" />
                 <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl/erfaring" />
                 <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl/experience" />

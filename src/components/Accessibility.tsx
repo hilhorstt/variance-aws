@@ -11,6 +11,8 @@ function Accessibility() {
             <Helmet
                 defaultTitle={`${t('accessibility.title')} - ${t('seo.title')}`}
             >
+                <meta name="description" content={t('seo.description.accessibility')} />
+                <meta name="keywords" content={t('seo.keywords.accessibility')} />
                 <link rel="alternate" hrefLang="nl-NL" href="https://www.variancesolutions.nl/digitale-toegankelijkheid" />
                 <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl/universell-utforming" />
                 <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl/web-accessibility" />

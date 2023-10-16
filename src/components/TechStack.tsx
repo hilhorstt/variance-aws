@@ -72,6 +72,8 @@ function TechStack() {
             <Helmet
                 defaultTitle={`${t('techStack.title')} - ${t('seo.title')}`}
             >
+                <meta name="description" content={t('seo.description.techStack')} />
+                <meta name="keywords" content={t('seo.keywords.techStack')} />
                 <link rel="alternate" hrefLang="nl-NL" href="https://www.variancesolutions.nl/tech-stack" />
                 <link rel="alternate" hrefLang="no-NO" href="https://no.variancesolutions.nl/tech-stack" />
                 <link rel="alternate" hrefLang="en-EN" href="https://en.variancesolutions.nl/tech-stack" />

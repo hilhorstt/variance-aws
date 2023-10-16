@@ -51,8 +51,20 @@
     "kvk": "KvK registratie"
   },
   "seo": {
-    "description": "Tim Hilhorst, freelance lead front-end ontwikkelaar, toegankelijkheidsauditor en gecertificeerde scrum master",
-    "keywords": "toegankelijkheid, digitale toegankelijkheid, accessibility, wcag, freelance, front-end, developer, ontwikkelaar, auditor, scrum master",
+    "description": {
+      "accessibility": "Variance helpt uw webapplicatie toegankelijk te maken voor alle gebruikers",
+      "contact": "Variance Solutions is te benaderen per e-mail en via LinkedIn. Vind de bedrijfsgegevens op de site van de KvK.",
+      "experience":  "Een samenvatting van mijn werkervaring als freelancer bij Variance en als werknemer bij Inspera en Cognizant.",
+      "home": "Tim Hilhorst, freelance lead front-end ontwikkelaar, toegankelijkheidsauditor en gecertificeerde scrum master",
+      "techStack":  "Een overzicht van de tech stack waar ik het meest bekend mee ben."
+    },
+    "keywords": {
+      "accessibility": "toegankelijkheid, digitale toegankelijkheid, accessibility, a11y, wcag, react, front-end ontwikkelaar, scrum master",
+      "contact": "E-mail, LinkedIn, KVK, Variance, Tim Hilhorst",
+      "experience": "Ervaring, werkervaring, voltooide projecten, digitale toegankelijkheid, freelance, front-end developer, react, redux",
+      "home": "toegankelijkheid, digitale toegankelijkheid, accessibility, wcag, freelance, front-end, developer, ontwikkelaar, auditor, scrum master",
+      "techStack": "React, Redux, Lighthouse, MaterialUI, NodeJS, SASS, styled components, CSS"
+    },
     "title": "Tim Hilhorst | Variance - Lead Front-end Ontwikkelaar & Web Accessibility Auditor"
   }
 }

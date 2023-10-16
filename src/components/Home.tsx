@@ -5,6 +5,7 @@ import me from '../images/tim-hilhorst.webp';
 import logoSvg from '../images/variance-solutions-logo.svg';
 import StyledBody from '../styled/StyledBody';
 import StyledHeader from '../styled/StyledHeader';
+import { Helmet } from 'react-helmet-async';
 
 const LogoWrapper = styled.header`
   font-size: 1.2em;
@@ -47,6 +48,10 @@ function Home() {
     const { t } = useTranslation();
     return (
         <>
+            <Helmet>
+                <meta name="description" content={t('seo.description.home')} />
+                <meta name="keywords" content={t('seo.keywords.home')} />
+            </Helmet>
             <LogoWrapper>
                 <Logo>
                     <img width={400} height={113} src={logoSvg} alt="Variance Solutions logo" />
